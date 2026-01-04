@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import gygLogo from './gyg.svg'
 import './App.css'
-import { randomiseOrder } from './randomise-logic'
+import { randomiseOrder } from './randomiser-logic'
 
 function App() {
   const [order, setOrder] = useState<string>('')
