@@ -1,102 +1,255 @@
 type Entree = {
-    name: string;
-    ingredients: EntreeIngredients
-}
+  name: string;
+  ingredients: EntreeIngredients;
+  // isBreakfast: boolean
+};
 
 type EntreeIngredients = {
-    rice?: Ingredient[];
-    beans?: Ingredient[];
-    protein: Ingredient[];
-    addition: Ingredient[];
-    sauce: Ingredient[];
-}
+  rice?: Ingredient[];
+  beans?: Ingredient[];
+  protein: Ingredient[];
+  addition: Ingredient[];
+  sauce: Ingredient[];
+};
 
 type Ingredient = {
-    name: string
-    vegetarian: boolean
-}
+  name: string;
+  isVegetarian: boolean;
+  // isBreakfast: boolean
+};
 
 const entrees: Entree[] = [
-    {name: 'bowl', ingredients: {rice: [], beans: [], protein: [], addition: [{name: 'cheese', vegetarian: true}, {name: 'pico', vegetarian: true}], sauce: [{name: 'tomatillo salsa', vegetarian: true}]}},
-    {name: 'burrito', ingredients: {rice: [], beans: [], protein: [], addition: [{name: 'cheese', vegetarian: true}, {name: 'pico', vegetarian: true}], sauce: [{name: 'tomatillo salsa', vegetarian: true}]}},
-    {name: 'cali burrito', ingredients: {protein: [], addition: [{name: 'cheese', vegetarian: true}, {name: 'pico', vegetarian: true}, {name: 'guacamole', vegetarian: true}], sauce: [{name: 'tomatillo salsa', vegetarian: true}, {name: 'sour cream', vegetarian: true}]}},
-    {name: 'enchilada', ingredients: {rice: [], beans: [], protein: [], addition: [{name: 'cheese', vegetarian: true}, {name: 'pico', vegetarian: true}, {name: 'guacamole', vegetarian: true}], sauce: [{name: 'tomatillo salsa', vegetarian: true}, {name: 'sour cream', vegetarian: true}]}},
-    {name: 'hard taco', ingredients: {protein: [], addition: [{name: 'cheese', vegetarian: true}, {name: 'pico', vegetarian: true}, {name: 'lettuce', vegetarian: true}], sauce: [{name: 'tomatillo salsa', vegetarian: true}]}},
-    {name: 'nacho', ingredients: {beans: [], protein: [], addition: [{name: 'cheese', vegetarian: true}, {name: 'pico', vegetarian: true}, {name: 'guacamole', vegetarian: true}], sauce: [{name: 'tomatillo salsa', vegetarian: true}]}},
-    {name: 'nacho fries', ingredients: {protein: [], addition: [{name: 'cheese', vegetarian: true}, {name: 'pico', vegetarian: true}, {name: 'guacamole', vegetarian: true}], sauce: [{name: 'tomatillo salsa', vegetarian: true}, {name: 'sour cream', vegetarian: true}]}},
-    {name: 'quesadilla', ingredients: {protein: [], addition: [{name: 'cheese', vegetarian: true}], sauce: []}},
-    {name: 'salad', ingredients: {protein: [], addition: [{name: 'pico', vegetarian: true}, {name: 'lettuce', vegetarian: true}], sauce: [{name: 'chipotle mayo', vegetarian: true}]}},
-    {name: 'soft taco', ingredients: {protein: [], addition: [{name: 'cheese', vegetarian: true}, {name: 'pico', vegetarian: true}, {name: 'lettuce', vegetarian: true}], sauce: [{name: 'tomatillo salsa', vegetarian: true}]}}
+  {
+    name: "bowl",
+    ingredients: {
+      rice: [],
+      beans: [],
+      protein: [],
+      addition: [
+        { name: "cheese", isVegetarian: true },
+        { name: "pico", isVegetarian: true },
+      ],
+      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+    },
+  },
+  {
+    name: "burrito",
+    ingredients: {
+      rice: [],
+      beans: [],
+      protein: [],
+      addition: [
+        { name: "cheese", isVegetarian: true },
+        { name: "pico", isVegetarian: true },
+      ],
+      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+    },
+  },
+  {
+    name: "cali burrito",
+    ingredients: {
+      protein: [],
+      addition: [
+        { name: "cheese", isVegetarian: true },
+        { name: "pico", isVegetarian: true },
+        { name: "guacamole", isVegetarian: true },
+      ],
+      sauce: [
+        { name: "tomatillo salsa", isVegetarian: true },
+        { name: "sour cream", isVegetarian: true },
+      ],
+    },
+  },
+  {
+    name: "enchilada",
+    ingredients: {
+      rice: [],
+      beans: [],
+      protein: [],
+      addition: [
+        { name: "cheese", isVegetarian: true },
+        { name: "pico", isVegetarian: true },
+        { name: "guacamole", isVegetarian: true },
+      ],
+      sauce: [
+        { name: "tomatillo salsa", isVegetarian: true },
+        { name: "sour cream", isVegetarian: true },
+      ],
+    },
+  },
+  {
+    name: "hard taco",
+    ingredients: {
+      protein: [],
+      addition: [
+        { name: "cheese", isVegetarian: true },
+        { name: "pico", isVegetarian: true },
+        { name: "lettuce", isVegetarian: true },
+      ],
+      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+    },
+  },
+  {
+    name: "nacho",
+    ingredients: {
+      beans: [],
+      protein: [],
+      addition: [
+        { name: "cheese", isVegetarian: true },
+        { name: "pico", isVegetarian: true },
+        { name: "guacamole", isVegetarian: true },
+      ],
+      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+    },
+  },
+  {
+    name: "nacho fries",
+    ingredients: {
+      protein: [],
+      addition: [
+        { name: "cheese", isVegetarian: true },
+        { name: "pico", isVegetarian: true },
+        { name: "guacamole", isVegetarian: true },
+      ],
+      sauce: [
+        { name: "tomatillo salsa", isVegetarian: true },
+        { name: "sour cream", isVegetarian: true },
+      ],
+    },
+  },
+  {
+    name: "quesadilla",
+    ingredients: {
+      protein: [],
+      addition: [{ name: "cheese", isVegetarian: true }],
+      sauce: [],
+    },
+  },
+  {
+    name: "salad",
+    ingredients: {
+      protein: [],
+      addition: [
+        { name: "pico", isVegetarian: true },
+        { name: "lettuce", isVegetarian: true },
+      ],
+      sauce: [{ name: "chipotle mayo", isVegetarian: true }],
+    },
+  },
+  {
+    name: "soft taco",
+    ingredients: {
+      protein: [],
+      addition: [
+        { name: "cheese", isVegetarian: true },
+        { name: "pico", isVegetarian: true },
+        { name: "lettuce", isVegetarian: true },
+      ],
+      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+    },
+  },
 ];
 
 const ingredients: Record<string, Ingredient[]> = {
-    'rice': [{name: 'brown rice', vegetarian: true}, {name: 'white rice', vegetarian: true}],
-    'beans': [{name: 'black beans', vegetarian: true}, {name: 'pinto beans', vegetarian: true}],
-    'protein': [
-        {name: 'brisket', vegetarian: false},
-        {name: 'chicken tenders', vegetarian: false},
-        {name: 'grilled chicken', vegetarian: false},
-        {name: 'ground beef', vegetarian: false},
-        {name: 'pork', vegetarian: false},
-        {name: 'sauteed vegetables', vegetarian: true},
-        {name: 'shitake mushroom', vegetarian: true}
-    ],
-    'addition': [
-        {name: 'cheese', vegetarian: true},
-        {name: 'coriander', vegetarian: true},
-        {name: 'crushed corn chips', vegetarian: true},
-        {name: 'diced onions', vegetarian: true},
-        {name: 'fresh jalapenos', vegetarian: true},
-        {name: 'guacamole', vegetarian: true},
-        {name: 'lettuce', vegetarian: true},
-        {name: 'pico', vegetarian: true},
-        {name: 'pickled jalapenos', vegetarian: true},
-        {name: 'queso', vegetarian: true},
-        {name: 'seasoned corn', vegetarian: true}
-    ],
-    'sauce': [
-        {name: 'chipotle mayo', vegetarian: true},
-        {name: 'chimi mayo', vegetarian: true},
-        {name: 'habanero sauce', vegetarian: true},
-        {name: 'herb mayo', vegetarian: true},
-        {name: 'jalapeno ketchup', vegetarian: true},
-        {name: 'ketchup', vegetarian: true},
-        {name: 'roasted jalapeno salsa', vegetarian: true},
-        {name: 'smokey chipotle salsa', vegetarian: true},
-        {name: 'sour cream', vegetarian: true},
-        {name: 'tomatillo salsa', vegetarian: true}
-    ]
-}
+  rice: [
+    { name: "brown rice", isVegetarian: true },
+    { name: "white rice", isVegetarian: true },
+  ],
+  beans: [
+    { name: "black beans", isVegetarian: true },
+    { name: "pinto beans", isVegetarian: true },
+  ],
+  protein: [
+    { name: "brisket", isVegetarian: false },
+    { name: "chicken tenders", isVegetarian: false },
+    { name: "grilled chicken", isVegetarian: false },
+    { name: "ground beef", isVegetarian: false },
+    { name: "pork", isVegetarian: false },
+    { name: "sauteed vegetables", isVegetarian: true },
+    { name: "shitake mushroom", isVegetarian: true },
+  ],
+  addition: [
+    { name: "cheese", isVegetarian: true },
+    { name: "coriander", isVegetarian: true },
+    { name: "crushed corn chips", isVegetarian: true },
+    { name: "diced onions", isVegetarian: true },
+    { name: "fresh jalapenos", isVegetarian: true },
+    { name: "guacamole", isVegetarian: true },
+    { name: "lettuce", isVegetarian: true },
+    { name: "pico", isVegetarian: true },
+    { name: "pickled jalapenos", isVegetarian: true },
+    { name: "queso", isVegetarian: true },
+    { name: "seasoned corn", isVegetarian: true },
+  ],
+  sauce: [
+    { name: "chipotle mayo", isVegetarian: true },
+    { name: "chimi mayo", isVegetarian: true },
+    { name: "habanero sauce", isVegetarian: true },
+    { name: "herb mayo", isVegetarian: true },
+    { name: "jalapeno ketchup", isVegetarian: true },
+    { name: "ketchup", isVegetarian: true },
+    { name: "roasted jalapeno salsa", isVegetarian: true },
+    { name: "smokey chipotle salsa", isVegetarian: true },
+    { name: "sour cream", isVegetarian: true },
+    { name: "tomatillo salsa", isVegetarian: true },
+  ],
+};
 
 function selectRandomElement<T>(list: T[]): T {
   const randomIndex = Math.floor(Math.random() * list.length);
   return list[randomIndex];
 }
 
-function createOrderString(entree: Entree, selected_ingredients: Ingredient[]): string {
-    let order = `Your order is a ${entree.name} with`
-    for (let i = 0; i < selected_ingredients.length - 1; i++) {
-        order += ` ${selected_ingredients[i].name},`
+function isIngredientValid(
+  selectedIngredient: Ingredient,
+  entreeIngredients: Ingredient[],
+): boolean {
+  for (const entreeIngredient of entreeIngredients) {
+    if (selectedIngredient.name == entreeIngredient.name) {
+      return false;
     }
-    order += ` and ${selected_ingredients[selected_ingredients.length - 1].name}.`
-    return order
+  }
+  return true;
 }
 
-export function randomiseOrder(): string {
-    const entree = selectRandomElement(entrees)
-    const selected_ingredients: Ingredient[] = []
-    for (const [category, entree_ingredients] of Object.entries(entree.ingredients)) {
-        let selected_ingredient = selectRandomElement(ingredients[category])
-        while (true) {
-            if (!entree_ingredients.includes(selected_ingredient)){
-                selected_ingredients.push(selected_ingredient)
-                break
-            }
-            else {
-                selected_ingredient = selectRandomElement(ingredients[category])
-            }
-        }
-        entree_ingredients.push(selected_ingredient)
+function createOrderString(
+  entree: Entree,
+  selectedIngredients: Ingredient[],
+): string {
+  let order = `Your order is a ${entree.name} with`;
+  for (let i = 0; i < selectedIngredients.length - 1; i++) {
+    order += ` ${selectedIngredients[i].name},`;
+  }
+  order += ` and ${selectedIngredients[selectedIngredients.length - 1].name}.`;
+  return order;
+}
+
+export function randomiseOrder(isVegetarian: boolean): string {
+  const entree = selectRandomElement(entrees);
+  const selectedIngredients: Ingredient[] = [];
+
+  for (const [category, entreeIngredients] of Object.entries(
+    entree.ingredients,
+  )) {
+    let availableIngredients = ingredients[category].filter(
+      (ingredient) => !isVegetarian || ingredient.isVegetarian,
+    );
+
+    if (availableIngredients.length === 0) {
+      console.warn(
+        `No isVegetarian options for category: ${category}. Skipping.`,
+      );
+      continue;
     }
-    return createOrderString(entree, selected_ingredients)
+
+    while (true) {
+      let selectedIngredient = selectRandomElement(availableIngredients);
+
+      if (isIngredientValid(selectedIngredient, entreeIngredients)) {
+        selectedIngredients.push(selectedIngredient);
+        break;
+      }
+    }
+  }
+  return createOrderString(entree, selectedIngredients);
 }
