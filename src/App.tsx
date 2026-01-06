@@ -3,10 +3,12 @@ import gygLogo from "./gyg.svg";
 import "./App.css";
 import { randomiseOrder } from "./randomiser";
 import VegetarianCheckbox from "./VegetarianCheckbox";
+import BreakfastCheckbox from "./BreakfastCheckbox";
 
 function App() {
   const [order, setOrder] = useState<string>("");
   const [isVegetarian, setIsVegetarian] = useState(false);
+  const [isBreakfast, setIsBreakfast] = useState(false);
 
   return (
     <>
@@ -17,8 +19,12 @@ function App() {
       </div>
       <h1>Guzman Y Gomez Order Randomiser</h1>
       <VegetarianCheckbox isChecked={isVegetarian} onCheck={setIsVegetarian} />
+      <div></div>
+      <BreakfastCheckbox isChecked={isBreakfast} onCheck={setIsBreakfast} />
       <div className="card">
-        <button onClick={() => setOrder(randomiseOrder(isVegetarian))}>
+        <button
+          onClick={() => setOrder(randomiseOrder(isVegetarian, isBreakfast))}
+        >
           Generate Order
         </button>
         <p>{order}</p>

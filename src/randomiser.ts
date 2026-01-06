@@ -8,18 +8,6 @@ function selectRandomElement<T>(list: T[]): T {
   return list[randomIndex];
 }
 
-function isIngredientValid(
-  selectedIngredient: Ingredient,
-  entreeIngredients: Ingredient[],
-): boolean {
-  for (const entreeIngredient of entreeIngredients) {
-    if (selectedIngredient.name == entreeIngredient.name) {
-      return false;
-    }
-  }
-  return true;
-}
-
 function createOrderString(
   entree: Entree,
   selectedIngredients: Ingredient[],
@@ -32,32 +20,35 @@ function createOrderString(
   return order;
 }
 
-export function randomiseOrder(isVegetarian: boolean): string {
-  const entree = selectRandomElement(entrees);
+export function randomiseOrder(
+  isVegetarian: boolean,
+  isBreakfast: boolean,
+): string {
+  const availableEntrees = isBreakfast
+    ? entrees.filter((entree) => entree.isBreakfast)
+    : entrees.filter((entree) => entree.isDinner);
+  const selectedEntree = selectRandomElement(availableEntrees);
+
   const selectedIngredients: Ingredient[] = [];
 
-  for (const [category, entreeIngredients] of Object.entries(
-    entree.ingredients,
+  for (const [category, entreeIngredientNames] of Object.entries(
+    selectedEntree.ingredients,
   )) {
-    let availableIngredients = ingredients[category].filter(
+    let availableIngredients = isBreakfast
+      ? ingredients[category].filter((ingredient) => ingredient.isBreakfast)
+      : ingredients[category].filter((ingredient) => ingredient.isDinner);
+
+    availableIngredients = availableIngredients.filter(
       (ingredient) => !isVegetarian || ingredient.isVegetarian,
     );
 
-    if (availableIngredients.length === 0) {
-      console.warn(
-        `No isVegetarian options for category: ${category}. Skipping.`,
-      );
-      continue;
-    }
-
     while (true) {
-      let selectedIngredient = selectRandomElement(availableIngredients);
-
-      if (isIngredientValid(selectedIngredient, entreeIngredients)) {
+      const selectedIngredient = selectRandomElement(availableIngredients);
+      if (!entreeIngredientNames.includes(selectedIngredient.name)) {
         selectedIngredients.push(selectedIngredient);
         break;
       }
     }
   }
-  return createOrderString(entree, selectedIngredients);
+  return createOrderString(selectedEntree, selectedIngredients);
 }

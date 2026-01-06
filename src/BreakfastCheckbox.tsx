@@ -1,17 +1,17 @@
-interface VegetarianCheckboxProps {
+interface BreakfastCheckboxProps {
   isChecked: boolean;
   onCheck: (isChecked: boolean) => void;
 }
 
-export default function VegetarianCheckbox({
+export default function BreakfastCheckbox({
   isChecked,
   onCheck,
-}: VegetarianCheckboxProps) {
+}: BreakfastCheckboxProps) {
   return (
     <>
       <label>
         <input type="checkbox" onClick={() => onCheck(!isChecked)} />
-        Vegetarian
+        Breakfast Menu
       </label>
     </>
   );

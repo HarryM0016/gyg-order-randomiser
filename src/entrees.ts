@@ -1,17 +1,16 @@
-import type { Ingredient } from "./ingredients";
-
 export type Entree = {
   name: string;
   ingredients: EntreeIngredients;
-  // isBreakfast: boolean
+  isBreakfast: boolean;
+  isDinner: boolean;
 };
 
 type EntreeIngredients = {
-  rice?: Ingredient[];
-  beans?: Ingredient[];
-  protein: Ingredient[];
-  addition: Ingredient[];
-  sauce: Ingredient[];
+  rice?: string[];
+  beans?: string[];
+  protein?: string[];
+  addition: string[];
+  sauce: string[];
 };
 
 export const entrees: Entree[] = [
@@ -21,12 +20,11 @@ export const entrees: Entree[] = [
       rice: [],
       beans: [],
       protein: [],
-      addition: [
-        { name: "cheese", isVegetarian: true },
-        { name: "pico", isVegetarian: true },
-      ],
-      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+      addition: ["cheese", "pico"],
+      sauce: ["tomatillo salsa"],
     },
+    isBreakfast: false,
+    isDinner: true,
   },
   {
     name: "burrito",
@@ -34,27 +32,21 @@ export const entrees: Entree[] = [
       rice: [],
       beans: [],
       protein: [],
-      addition: [
-        { name: "cheese", isVegetarian: true },
-        { name: "pico", isVegetarian: true },
-      ],
-      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+      addition: ["cheese", "pico"],
+      sauce: ["tomatillo salsa"],
     },
+    isBreakfast: false,
+    isDinner: true,
   },
   {
     name: "cali burrito",
     ingredients: {
       protein: [],
-      addition: [
-        { name: "cheese", isVegetarian: true },
-        { name: "pico", isVegetarian: true },
-        { name: "guacamole", isVegetarian: true },
-      ],
-      sauce: [
-        { name: "tomatillo salsa", isVegetarian: true },
-        { name: "sour cream", isVegetarian: true },
-      ],
+      addition: ["cheese", "pico", "guacamole"],
+      sauce: ["tomatillo salsa", "sour cream"],
     },
+    isBreakfast: false,
+    isDinner: true,
   },
   {
     name: "enchilada",
@@ -62,86 +54,122 @@ export const entrees: Entree[] = [
       rice: [],
       beans: [],
       protein: [],
-      addition: [
-        { name: "cheese", isVegetarian: true },
-        { name: "pico", isVegetarian: true },
-        { name: "guacamole", isVegetarian: true },
-      ],
-      sauce: [
-        { name: "tomatillo salsa", isVegetarian: true },
-        { name: "sour cream", isVegetarian: true },
-      ],
+      addition: ["cheese", "pico", "guacamole"],
+      sauce: ["tomatillo salsa", "sour cream"],
     },
+    isBreakfast: false,
+    isDinner: true,
   },
+
   {
     name: "hard taco",
     ingredients: {
       protein: [],
-      addition: [
-        { name: "cheese", isVegetarian: true },
-        { name: "pico", isVegetarian: true },
-        { name: "lettuce", isVegetarian: true },
-      ],
-      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+      addition: ["cheese", "pico", "lettuce"],
+      sauce: ["tomatillo salsa"],
     },
+    isBreakfast: false,
+    isDinner: true,
   },
   {
     name: "nacho",
     ingredients: {
       beans: [],
       protein: [],
-      addition: [
-        { name: "cheese", isVegetarian: true },
-        { name: "pico", isVegetarian: true },
-        { name: "guacamole", isVegetarian: true },
-      ],
-      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+      addition: ["cheese", "pico", "guacamole"],
+      sauce: ["tomatillo salsa"],
     },
+    isBreakfast: false,
+    isDinner: true,
   },
   {
     name: "nacho fries",
     ingredients: {
       protein: [],
-      addition: [
-        { name: "cheese", isVegetarian: true },
-        { name: "pico", isVegetarian: true },
-        { name: "guacamole", isVegetarian: true },
-      ],
-      sauce: [
-        { name: "tomatillo salsa", isVegetarian: true },
-        { name: "sour cream", isVegetarian: true },
-      ],
+      addition: ["cheese", "pico", "guacamole"],
+      sauce: ["tomatillo salsa", "sour cream"],
     },
+    isBreakfast: false,
+    isDinner: true,
   },
   {
     name: "quesadilla",
     ingredients: {
       protein: [],
-      addition: [{ name: "cheese", isVegetarian: true }],
+      addition: ["cheese"],
       sauce: [],
     },
+    isBreakfast: true,
+    isDinner: true,
+  },
+  {
+    name: "quesadilla plus",
+    ingredients: {
+      protein: [],
+      addition: ["cheese", "guacamole", "pico"],
+      sauce: ["sour cream"],
+    },
+    isBreakfast: true,
+    isDinner: true,
   },
   {
     name: "salad",
     ingredients: {
       protein: [],
-      addition: [
-        { name: "pico", isVegetarian: true },
-        { name: "lettuce", isVegetarian: true },
-      ],
-      sauce: [{ name: "chipotle mayo", isVegetarian: true }],
+      addition: ["pico", "lettuce"],
+      sauce: ["chipotle mayo"],
     },
+    isBreakfast: false,
+    isDinner: true,
   },
   {
     name: "soft taco",
     ingredients: {
       protein: [],
-      addition: [
-        { name: "cheese", isVegetarian: true },
-        { name: "pico", isVegetarian: true },
-        { name: "lettuce", isVegetarian: true },
-      ],
-      sauce: [{ name: "tomatillo salsa", isVegetarian: true }],
+      addition: ["cheese", "pico", "lettuce"],
+      sauce: ["tomatillo salsa"],
     },
+    isBreakfast: false,
+    isDinner: true,
+  },
+  {
+    name: "breakfast bowl",
+    ingredients: {
+      protein: [],
+      addition: ["cheese", "pico", "scrambled eggs"],
+      sauce: [],
+    },
+    isBreakfast: true,
+    isDinner: false,
+  },
+  {
+    name: "breakfast burrito",
+    ingredients: {
+      protein: [],
+      addition: ["cheese", "a hashbrown", "pico", "scrambled eggs"],
+      sauce: [],
+    },
+    isBreakfast: true,
+    isDinner: false,
+  },
+  {
+    name: "breakfast taco",
+    ingredients: {
+      protein: [],
+      addition: ["cheese", "pico", "scrambled eggs"],
+      sauce: ["jalapeno ketchup"],
+    },
+    isBreakfast: true,
+    isDinner: false,
+  },
+  {
+    // Mayvbe make a side
+    name: "guac on toast",
+    ingredients: {
+      addition: ["guacamole"],
+      sauce: [],
+    },
+    isBreakfast: true,
+    isDinner: false,
   },
 ];
