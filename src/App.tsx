@@ -1,5 +1,5 @@
 import { useState } from "react";
-import gygLogo from "./gyg.svg";
+import gygLogo from "./assets/gyg.svg";
 import "./App.css";
 import { randomiseOrder } from "./randomiser";
 import VegetarianCheckbox from "./VegetarianCheckbox";

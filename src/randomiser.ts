@@ -8,7 +8,7 @@ function selectRandomElement<T>(list: T[]): T {
   return list[randomIndex];
 }
 
-function createOrderString(
+export function createOrderString(
   entree: Entree,
   selectedIngredients: Ingredient[],
 ): string {
@@ -41,6 +41,18 @@ export function randomiseOrder(
     availableIngredients = availableIngredients.filter(
       (ingredient) => !isVegetarian || ingredient.isVegetarian,
     );
+
+    if (availableIngredients.length === 0) {
+      console.log("Skipping category - no addable ingredients");
+      const errorIngredient: Ingredient = {
+        name: "errorIngredient",
+        isVegetarian: false,
+        isBreakfast: false,
+        isDinner: false,
+      };
+      selectedIngredients.push(errorIngredient);
+      continue;
+    }
 
     while (true) {
       const selectedIngredient = selectRandomElement(availableIngredients);
