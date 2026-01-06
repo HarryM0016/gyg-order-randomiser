@@ -6,5 +6,5 @@ Additionally, the app also includes a checkbox to enable only vegetarian options
 
 # Planned Additions
 
-- Breakfast menu
 - Meal randomiser, including a random entree, side and drink
+- Add guacamole as an addition when the protein is vegetables
