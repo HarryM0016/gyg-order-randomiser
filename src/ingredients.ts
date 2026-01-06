@@ -199,7 +199,7 @@ export const ingredients: Record<string, Ingredient[]> = {
     {
       name: "tomatillo salsa",
       isVegetarian: true,
-      isBreakfast: true,
+      isBreakfast: false,
       isDinner: true,
     },
   ],
