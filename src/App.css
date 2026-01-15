@@ -38,7 +38,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 .randomise-button {
@@ -66,7 +66,7 @@ header {
   padding-right: 12px;
   background-color: #ffd204;
   color: #171717;
-  text-shadow: 1px 1px 0 #FFF;
+  text-shadow: 1px 1px 0 #fff;
   font-size: 22px;
   text-transform: uppercase;
   border-radius: 8px;
