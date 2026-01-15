@@ -8,11 +8,13 @@ export default function BreakfastCheckbox({
   onCheck,
 }: BreakfastCheckboxProps) {
   return (
-    <>
-      <label>
-        <input type="checkbox" onClick={() => onCheck(!isChecked)} />
-        Breakfast Menu
-      </label>
-    </>
+    <label className="big-label">
+      <input
+        type="checkbox"
+        className="big-checkbox"
+        onClick={() => onCheck(!isChecked)}
+      />
+      Breakfast
+    </label>
   );
 }

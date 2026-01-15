@@ -12,26 +12,22 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://www.guzmanygomez.com.au/" target="_blank">
-          <img src={gygLogo} className="logo" alt="GYG logo" />
-        </a>
-      </div>
-      <h1>Guzman Y Gomez Order Randomiser</h1>
-      <VegetarianCheckbox isChecked={isVegetarian} onCheck={setIsVegetarian} />
-      <div></div>
-      <BreakfastCheckbox isChecked={isBreakfast} onCheck={setIsBreakfast} />
-      <div className="card">
-        <button
-          onClick={() => setOrder(randomiseOrder(isVegetarian, isBreakfast))}
-        >
-          Generate Order
+      <a href="https://www.guzmanygomez.com.au/" target="_blank" title="Guzman Y Gomez">
+        <img src={gygLogo} className="logo" />
+      </a>
+      <header>x</header>
+      <div className="container">
+        <h1>Select Criteria</h1>
+        <div className="checkbox-container">
+          <VegetarianCheckbox isChecked={isVegetarian} onCheck={setIsVegetarian} />
+          <BreakfastCheckbox isChecked={isBreakfast} onCheck={setIsBreakfast} />
+        </div>
+        <button className="randomise-button" onClick={() => setOrder(randomiseOrder(isVegetarian, isBreakfast))}>
+          Randomise
         </button>
-        <p>{order}</p>
       </div>
-      <p className="read-the-docs">
-        Click on the GYG logo to view the full menu
-      </p>
+      <p>{order}</p>
+
     </>
   );
 }

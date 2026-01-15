@@ -1,39 +1,91 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+header {
+  height: 76px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #171717;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #ffc404aa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  height: 110px;
+  width: 110px;
+  position: absolute;
+  top: 16px;
+  left: 32px;
+  z-index: 11;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.16);
+  border-radius: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.container {
+  height: auto;
+  width: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+  position: fixed;
+  top: 140px;
+  bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.card {
-  padding: 2em;
+.checkbox-container {
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-grow: 1
 }
 
-.read-the-docs {
-  color: #888;
+.randomise-button {
+  height: 60px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #ffd204;
+  color: #171717;
+  text-transform: uppercase;
+  font-size: 22px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-out 0s;
+}
+
+.randomise-button:hover {
+  background-color: #ffe167;
+}
+
+.regular-button {
+  height: 40px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #ffd204;
+  color: #171717;
+  text-shadow: 1px 1px 0 #FFF;
+  font-size: 22px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-out 0s;
+}
+
+.big-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.big-checkbox {
+  transform: scale(2);
+  transform-origin: left center;
+  margin-right: 1rem;
 }
