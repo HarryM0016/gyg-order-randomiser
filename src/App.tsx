@@ -12,26 +12,35 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://www.guzmanygomez.com.au/" target="_blank">
-          <img src={gygLogo} className="logo" alt="GYG logo" />
-        </a>
+      <a
+        href="https://www.guzmanygomez.com.au/"
+        target="_blank"
+        title="Guzman Y Gomez"
+      >
+        <img src={gygLogo} className="logo" />
+      </a>
+      <header></header>
+      <div className="container">
+        <div className="side-container">
+          <h1>Select Criteria</h1>
+          <div className="checkbox-container">
+            <VegetarianCheckbox
+              isChecked={isVegetarian}
+              onCheck={setIsVegetarian}
+            />
+            <BreakfastCheckbox isChecked={isBreakfast} onCheck={setIsBreakfast} />
+          </div>
+          <button
+            className="randomise-button"
+            onClick={() => setOrder(randomiseOrder(isVegetarian, isBreakfast))}
+          >
+            Randomise
+          </button>
+        </div>
+        <div className="slot-container">
+          <p>{order}</p>
+        </div>
       </div>
-      <h1>Guzman Y Gomez Order Randomiser</h1>
-      <VegetarianCheckbox isChecked={isVegetarian} onCheck={setIsVegetarian} />
-      <div></div>
-      <BreakfastCheckbox isChecked={isBreakfast} onCheck={setIsBreakfast} />
-      <div className="card">
-        <button
-          onClick={() => setOrder(randomiseOrder(isVegetarian, isBreakfast))}
-        >
-          Generate Order
-        </button>
-        <p>{order}</p>
-      </div>
-      <p className="read-the-docs">
-        Click on the GYG logo to view the full menu
-      </p>
     </>
   );
 }

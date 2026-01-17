@@ -8,11 +8,13 @@ export default function VegetarianCheckbox({
   onCheck,
 }: VegetarianCheckboxProps) {
   return (
-    <>
-      <label>
-        <input type="checkbox" onClick={() => onCheck(!isChecked)} />
-        Vegetarian
-      </label>
-    </>
+    <label className="big-label">
+      <input
+        type="checkbox"
+        className="big-checkbox"
+        onClick={() => onCheck(!isChecked)}
+      />
+      Vegetarian
+    </label>
   );
 }
