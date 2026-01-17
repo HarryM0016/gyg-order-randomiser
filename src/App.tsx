@@ -19,24 +19,28 @@ function App() {
       >
         <img src={gygLogo} className="logo" />
       </a>
-      <header>x</header>
+      <header></header>
       <div className="container">
-        <h1>Select Criteria</h1>
-        <div className="checkbox-container">
-          <VegetarianCheckbox
-            isChecked={isVegetarian}
-            onCheck={setIsVegetarian}
-          />
-          <BreakfastCheckbox isChecked={isBreakfast} onCheck={setIsBreakfast} />
+        <div className="side-container">
+          <h1>Select Criteria</h1>
+          <div className="checkbox-container">
+            <VegetarianCheckbox
+              isChecked={isVegetarian}
+              onCheck={setIsVegetarian}
+            />
+            <BreakfastCheckbox isChecked={isBreakfast} onCheck={setIsBreakfast} />
+          </div>
+          <button
+            className="randomise-button"
+            onClick={() => setOrder(randomiseOrder(isVegetarian, isBreakfast))}
+          >
+            Randomise
+          </button>
         </div>
-        <button
-          className="randomise-button"
-          onClick={() => setOrder(randomiseOrder(isVegetarian, isBreakfast))}
-        >
-          Randomise
-        </button>
+        <div className="slot-container">
+          <p>{order}</p>
+        </div>
       </div>
-      <p>{order}</p>
     </>
   );
 }
