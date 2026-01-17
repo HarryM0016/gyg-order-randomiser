@@ -14,7 +14,7 @@ export default function BreakfastCheckbox({
         className="big-checkbox"
         onClick={() => onCheck(!isChecked)}
       />
-      Breakfast
+      Breakfast Menu
     </label>
   );
 }
