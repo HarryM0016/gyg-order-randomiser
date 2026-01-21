@@ -7,36 +7,33 @@ import { sides } from "./sides";
 import type { Drink } from "./drinks";
 import { drinks } from "./drinks";
 
+export type Order = {
+  entree: Entree;
+  ingredients: Ingredient[]; // ^ Maybe don't make optional because it shouldn't be
+  side?: Side;
+  drink?: Drink;
+  type: "order" | "meal";
+};
+
 function selectRandomElement<T>(list: T[]): T {
   const randomIndex = Math.floor(Math.random() * list.length);
   return list[randomIndex];
 }
 
-export function createOrderString(
-  entree: Entree,
-  selectedIngredients: Ingredient[],
-): string {
-  let order = `Your order is a ${entree.name} with`;
-  for (let i = 0; i < selectedIngredients.length - 1; i++) {
-    order += ` ${selectedIngredients[i].name},`;
+export function createOrderString(order: Order): string {
+  let orderString = `Your ${order.type} is a ${order.entree.name} with`;
+  for (let i = 0; i < order.ingredients.length - 1; i++) {
+    orderString += ` ${order.ingredients[i].name},`;
   }
-  order += ` and ${selectedIngredients[selectedIngredients.length - 1].name}.`;
-  return order;
-}
 
-export function createMealString(
-  entree: Entree,
-  selectedIngredients: Ingredient[],
-  side: Side,
-  drink: Drink,
-): string {
-  let meal = `Your meal is a ${entree.name} with`;
-  for (let i = 0; i < selectedIngredients.length - 1; i++) {
-    meal += ` ${selectedIngredients[i].name},`;
+  if (order.side && order.drink) {
+    orderString += ` and ${order.ingredients[order.ingredients.length - 1].name},`;
+    orderString += ` with ${order.side.name}, and a ${order.drink.name}.`;
+    return orderString;
+  } else {
+    orderString += ` and ${order.ingredients[order.ingredients.length - 1].name}.`;
+    return orderString;
   }
-  meal += ` and ${selectedIngredients[selectedIngredients.length - 1].name},`;
-  meal += ` with ${side.name}, and a ${drink.name}.`;
-  return meal;
 }
 
 function randomiseSide(isBreakfast: boolean): Side {
@@ -54,7 +51,7 @@ export function randomiseOrder(
   isVegetarian: boolean,
   isBreakfast: boolean,
   isMeal: boolean,
-): string {
+): Order {
   const availableEntrees = isBreakfast
     ? entrees.filter((entree) => entree.isBreakfast)
     : entrees.filter((entree) => entree.isDinner);
@@ -77,9 +74,10 @@ export function randomiseOrder(
       console.log("Skipping category - no addable ingredients");
       const errorIngredient: Ingredient = {
         name: "errorIngredient",
-        isVegetarian: false,
-        isBreakfast: false,
-        isDinner: false,
+        image: "/src/assets/logo.png",
+        isVegetarian: true,
+        isBreakfast: true,
+        isDinner: true,
       };
       selectedIngredients.push(errorIngredient);
       continue;
@@ -94,14 +92,15 @@ export function randomiseOrder(
     }
   }
 
+  const order: Order = {
+    entree: selectedEntree,
+    ingredients: selectedIngredients,
+    type: "order",
+  };
   if (isMeal) {
-    return createMealString(
-      selectedEntree,
-      selectedIngredients,
-      randomiseSide(isBreakfast),
-      randomiseDrink(),
-    );
-  } else {
-    return createOrderString(selectedEntree, selectedIngredients);
+    order.side = randomiseSide(isBreakfast);
+    order.drink = randomiseDrink();
+    order.type = "meal";
   }
+  return order;
 }

@@ -1,5 +1,6 @@
 export type Entree = {
   name: string;
+  image: string;
   ingredients: EntreeIngredients;
   isBreakfast: boolean;
   isDinner: boolean;
@@ -16,6 +17,7 @@ type EntreeIngredients = {
 export const entrees: Entree[] = [
   {
     name: "bowl",
+    image: "/src/assets/images/entrees/bowl.png",
     ingredients: {
       rice: [],
       beans: [],
@@ -28,6 +30,7 @@ export const entrees: Entree[] = [
   },
   {
     name: "burrito",
+    image: "/src/assets/images/entrees/burrito.png",
     ingredients: {
       rice: [],
       beans: [],
@@ -40,6 +43,7 @@ export const entrees: Entree[] = [
   },
   {
     name: "cali burrito",
+    image: "/src/assets/images/entrees/cali-burrito.png",
     ingredients: {
       protein: [],
       addition: ["cheese", "pico", "guacamole"],
@@ -50,6 +54,7 @@ export const entrees: Entree[] = [
   },
   {
     name: "enchilada",
+    image: "/src/assets/images/entrees/enchilada.png",
     ingredients: {
       rice: [],
       beans: [],
@@ -63,6 +68,7 @@ export const entrees: Entree[] = [
 
   {
     name: "hard taco",
+    image: "/src/assets/images/entrees/hard-taco.png",
     ingredients: {
       protein: [],
       addition: ["cheese", "pico", "lettuce"],
@@ -72,7 +78,8 @@ export const entrees: Entree[] = [
     isDinner: true,
   },
   {
-    name: "nacho",
+    name: "nachos",
+    image: "/src/assets/images/entrees/nachos.png",
     ingredients: {
       beans: [],
       protein: [],
@@ -84,6 +91,7 @@ export const entrees: Entree[] = [
   },
   {
     name: "nacho fries",
+    image: "/src/assets/images/entrees/nacho-fries.png",
     ingredients: {
       protein: [],
       addition: ["cheese", "pico", "guacamole"],
@@ -94,6 +102,7 @@ export const entrees: Entree[] = [
   },
   {
     name: "quesadilla",
+    image: "/src/assets/images/entrees/quesadilla.png",
     ingredients: {
       protein: [],
       addition: ["cheese"],
@@ -104,6 +113,7 @@ export const entrees: Entree[] = [
   },
   {
     name: "quesadilla plus",
+    image: "/src/assets/images/entrees/quesadilla-plus.png",
     ingredients: {
       protein: [],
       addition: ["cheese", "guacamole", "pico"],
@@ -113,17 +123,8 @@ export const entrees: Entree[] = [
     isDinner: true,
   },
   {
-    name: "salad",
-    ingredients: {
-      protein: [],
-      addition: ["pico", "lettuce"],
-      sauce: ["chipotle mayo"],
-    },
-    isBreakfast: false,
-    isDinner: true,
-  },
-  {
     name: "soft taco",
+    image: "/src/assets/images/entrees/soft-taco.png",
     ingredients: {
       protein: [],
       addition: ["cheese", "pico", "lettuce"],
@@ -133,7 +134,18 @@ export const entrees: Entree[] = [
     isDinner: true,
   },
   {
+    name: "avocado toast",
+    image: "/src/assets/images/entrees/avocado-toast.png",
+    ingredients: {
+      addition: [],
+      sauce: [],
+    },
+    isBreakfast: true,
+    isDinner: false,
+  },
+  {
     name: "breakfast bowl",
+    image: "/src/assets/images/entrees/breakfast-bowl.png",
     ingredients: {
       protein: [],
       addition: ["cheese", "pico", "scrambled eggs"],
@@ -144,9 +156,10 @@ export const entrees: Entree[] = [
   },
   {
     name: "breakfast burrito",
+    image: "/src/assets/images/entrees/breakfast-burrito.png",
     ingredients: {
       protein: [],
-      addition: ["cheese", "a hashbrown", "pico", "scrambled eggs"],
+      addition: ["cheese", "a hash brown", "pico", "scrambled eggs"],
       sauce: [],
     },
     isBreakfast: true,
@@ -154,6 +167,7 @@ export const entrees: Entree[] = [
   },
   {
     name: "breakfast taco",
+    image: "/src/assets/images/entrees/breakfast-taco.png",
     ingredients: {
       protein: [],
       addition: ["cheese", "pico", "scrambled eggs"],
@@ -163,8 +177,8 @@ export const entrees: Entree[] = [
     isDinner: false,
   },
   {
-    // Mayvbe make a side
-    name: "guac on toast",
+    name: "guac toast",
+    image: "/src/assets/images/entrees/guac-toast.png",
     ingredients: {
       addition: ["guacamole"],
       sauce: [],
