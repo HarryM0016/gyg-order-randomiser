@@ -11,4 +11,6 @@ Additionally, the app also includes a checkbox to enable only vegetarian options
 - Add coffee
 - Add spicy and mild
 - Add special items (caesar range, bbq chicken double crunch)
+- Add soft serve
+- Randomise sauce choices for desserts
 - Add guacamole as an addition when the protein is vegetables
