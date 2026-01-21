@@ -9,4 +9,6 @@ Additionally, the app also includes a checkbox to enable only vegetarian options
 - Meal randomiser, including a random entree, side and drink
 - Return total cost of order and option to limit order price
 - Add coffee
+- Add spicy and mild
+- Add special items (caesar range, bbq chicken double crunch)
 - Add guacamole as an addition when the protein is vegetables
