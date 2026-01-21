@@ -24,7 +24,7 @@ export function createOrderString(
   return order;
 }
 
-function createMealString(
+export function createMealString(
   entree: Entree,
   selectedIngredients: Ingredient[],
   side: Side,
