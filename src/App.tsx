@@ -47,7 +47,42 @@ function App() {
             Randomise
           </button>
         </div>
-        <div className="slot-container">{createOrderString(order)}</div>
+        <div className="slot-container">
+          <div className="slot-image-container">
+            <img
+              src={order.entree.image}
+              alt={order.entree.name}
+              className="slot-image"
+            />
+            {order.ingredients.map((ing) => (
+              <img
+                key={ing.name}
+                src={ing.image ?? "/src/assets/images/placeholder.png"}
+                alt={ing.name}
+                className="slot-image"
+              />
+            ))}
+
+            {order.side?.image && (
+              <img
+                src={order.side.image}
+                alt={order.side.name}
+                className="slot-image"
+              />
+            )}
+
+            {order.drink?.image && (
+              <img
+                src={order.drink.image}
+                alt={order.drink.name}
+                className="slot-image"
+              />
+            )}
+          </div>
+          <div className="slot-message-container">
+            {createOrderString(order)}
+          </div>
+        </div>
       </div>
     </>
   );

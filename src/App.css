@@ -54,6 +54,23 @@ header {
   display: flex;
   background-color: #d6d0ad;
   border-radius: 16px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slot-image-container {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slot-message-container {
+  height: 10%;
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .randomise-button {
@@ -101,4 +118,8 @@ header {
   transform: scale(2);
   transform-origin: left center;
   margin-right: 1rem;
+}
+
+.slot-image {
+  width: 12.5%;
 }

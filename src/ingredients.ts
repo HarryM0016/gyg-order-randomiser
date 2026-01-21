@@ -84,7 +84,7 @@ export const ingredients: Record<string, Ingredient[]> = {
     },
     {
       name: "pork",
-      image: "/src/assets/images/protein/ingredients/pork.png",
+      image: "/src/assets/images/ingredients/protein/pork.png",
       isVegetarian: false,
       isBreakfast: false,
       isDinner: true,
@@ -98,7 +98,7 @@ export const ingredients: Record<string, Ingredient[]> = {
     },
     {
       name: "shitake mushroom",
-      image: "/src/assets/images/ingredients/protein/shitake-mushroom",
+      image: "/src/assets/images/ingredients/protein/shitake-mushroom.png",
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
@@ -191,7 +191,7 @@ export const ingredients: Record<string, Ingredient[]> = {
     },
     {
       name: "seasoned corn",
-      image: "/src/assets/images/ingredients/addition/seasoned-corn",
+      image: "/src/assets/images/ingredients/addition/seasoned-corn.png",
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
