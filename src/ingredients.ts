@@ -40,7 +40,13 @@ export const ingredients: Record<string, Ingredient[]> = {
     },
   ],
   protein: [
-    { name: "bacon", image: "/src/assets/images/ingredients/protein/bacon.png", isVegetarian: false, isBreakfast: true, isDinner: false },
+    {
+      name: "bacon",
+      image: "/src/assets/images/ingredients/protein/bacon.png",
+      isVegetarian: false,
+      isBreakfast: true,
+      isDinner: false,
+    },
     {
       name: "brisket",
       image: "/src/assets/images/ingredients/protein/brisket.png",
@@ -76,7 +82,13 @@ export const ingredients: Record<string, Ingredient[]> = {
       isBreakfast: false,
       isDinner: true,
     },
-    { name: "pork", image: "/src/assets/images/protein/ingredients/pork.png", isVegetarian: false, isBreakfast: false, isDinner: true },
+    {
+      name: "pork",
+      image: "/src/assets/images/protein/ingredients/pork.png",
+      isVegetarian: false,
+      isBreakfast: false,
+      isDinner: true,
+    },
     {
       name: "sauteed vegetables",
       image: "/src/assets/images/ingredients/protein/sauteed-vegetables.png",
@@ -93,7 +105,13 @@ export const ingredients: Record<string, Ingredient[]> = {
     },
   ],
   addition: [
-    { name: "cheese", image: "/src/assets/images/ingredients/addition/cheese.png", isVegetarian: true, isBreakfast: true, isDinner: true },
+    {
+      name: "cheese",
+      image: "/src/assets/images/ingredients/addition/cheese.png",
+      isVegetarian: true,
+      isBreakfast: true,
+      isDinner: true,
+    },
     {
       name: "coriander",
       image: "/src/assets/images/ingredients/addition/coriander.png",
@@ -130,14 +148,26 @@ export const ingredients: Record<string, Ingredient[]> = {
       isDinner: true,
     },
     {
-      name: "a hashbrown",
-      image: "/src/assets/images/ingredients/addition/hashbrown.png",
+      name: "a hash brown",
+      image: "/src/assets/images/ingredients/addition/hash-brown.png",
       isVegetarian: true,
       isBreakfast: true,
       isDinner: false,
     },
-    { name: "lettuce", image: "/src/assets/images/ingredients/addition/lettuce.png", isVegetarian: true, isBreakfast: false, isDinner: true },
-    { name: "pico", image: "/src/assets/images/ingredients/addition/pico.png", isVegetarian: true, isBreakfast: true, isDinner: true },
+    {
+      name: "lettuce",
+      image: "/src/assets/images/ingredients/addition/lettuce.png",
+      isVegetarian: true,
+      isBreakfast: false,
+      isDinner: true,
+    },
+    {
+      name: "pico",
+      image: "/src/assets/images/ingredients/addition/pico.png",
+      isVegetarian: true,
+      isBreakfast: true,
+      isDinner: true,
+    },
     {
       name: "pickled jalapenos",
       image: "/src/assets/images/ingredients/addition/pickled-jalapenos.png",
@@ -145,7 +175,13 @@ export const ingredients: Record<string, Ingredient[]> = {
       isBreakfast: true,
       isDinner: true,
     },
-    { name: "queso", image: "/src/assets/images/ingredients/addition/queso.png", isVegetarian: true, isBreakfast: false, isDinner: true },
+    {
+      name: "queso",
+      image: "/src/assets/images/ingredients/addition/queso.png",
+      isVegetarian: true,
+      isBreakfast: false,
+      isDinner: true,
+    },
     {
       name: "scrambled eggs",
       image: "/src/assets/images/ingredients/addition/scrambled-eggs.png",
@@ -190,7 +226,13 @@ export const ingredients: Record<string, Ingredient[]> = {
       isBreakfast: true,
       isDinner: true,
     },
-    { name: "ketchup", image: "/src/assets/images/ingredients/sauce/ketchup.png", isVegetarian: true, isBreakfast: true, isDinner: true },
+    {
+      name: "ketchup",
+      image: "/src/assets/images/ingredients/sauce/ketchup.png",
+      isVegetarian: true,
+      isBreakfast: true,
+      isDinner: true,
+    },
     {
       name: "roasted jalapeno salsa",
       image: "/src/assets/images/ingredients/sauce/roasted-jalapeno-salsa.png",

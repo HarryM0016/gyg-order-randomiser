@@ -159,7 +159,7 @@ export const entrees: Entree[] = [
     image: "/src/assets/images/entrees/breakfast-burrito.png",
     ingredients: {
       protein: [],
-      addition: ["cheese", "a hashbrown", "pico", "scrambled eggs"],
+      addition: ["cheese", "a hash brown", "pico", "scrambled eggs"],
       sauce: [],
     },
     isBreakfast: true,
@@ -175,7 +175,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: true,
     isDinner: false,
-  },       
+  },
   {
     name: "guac toast",
     image: "/src/assets/images/entrees/guac-toast.png",

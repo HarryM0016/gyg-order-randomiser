@@ -9,7 +9,7 @@ describe("randomiseOrder function", () => {
         name: "breakfast burrito",
         ingredients: {
           protein: [],
-          addition: ["cheese", "a hashbrown", "pico", "scrambled eggs"],
+          addition: ["cheese", "a hash brown", "pico", "scrambled eggs"],
           sauce: [],
         },
         isBreakfast: true,
@@ -81,7 +81,7 @@ describe("randomiseOrder function", () => {
         isDinner: true,
       },
       {
-        name: "a hashbrown",
+        name: "a hash brown",
         isBreakfast: true,
         isDinner: false,
       },
@@ -128,7 +128,7 @@ describe("randomiseOrder function", () => {
     });
     test("Should add breakfast side when isBreakfast is true", () => {
       const order = randomiseOrder(false, true, true);
-      expect(order).toContain("a hashbrown");
+      expect(order).toContain("a hash brown");
     });
   });
 
@@ -143,7 +143,7 @@ describe("randomiseOrder function", () => {
     test("Order string should contain a side and drink when isMeal is true", () => {
       const result = randomiseOrder(false, true, true);
       expect(result).toBe(
-        "Your meal is a breakfast burrito with bacon, guacamole, and herb mayo, with a hashbrown, and a coke.",
+        "Your meal is a breakfast burrito with bacon, guacamole, and herb mayo, with a hash brown, and a coke.",
       );
     });
   });
