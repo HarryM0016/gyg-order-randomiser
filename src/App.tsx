@@ -4,11 +4,13 @@ import "./App.css";
 import { randomiseOrder } from "./randomiser";
 import VegetarianCheckbox from "./VegetarianCheckbox";
 import BreakfastCheckbox from "./BreakfastCheckbox";
+import MealCheckbox from "./MealCheckbox";
 
 function App() {
   const [order, setOrder] = useState<string>("");
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isBreakfast, setIsBreakfast] = useState(false);
+  const [isMeal, setIsMeal] = useState(false);
 
   return (
     <>
@@ -28,11 +30,17 @@ function App() {
               isChecked={isVegetarian}
               onCheck={setIsVegetarian}
             />
-            <BreakfastCheckbox isChecked={isBreakfast} onCheck={setIsBreakfast} />
+            <BreakfastCheckbox
+              isChecked={isBreakfast}
+              onCheck={setIsBreakfast}
+            />
+            <MealCheckbox isChecked={isMeal} onCheck={setIsMeal} />
           </div>
           <button
             className="randomise-button"
-            onClick={() => setOrder(randomiseOrder(isVegetarian, isBreakfast))}
+            onClick={() =>
+              setOrder(randomiseOrder(isVegetarian, isBreakfast, isMeal))
+            }
           >
             Randomise
           </button>

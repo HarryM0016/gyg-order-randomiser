@@ -2,6 +2,10 @@ import type { Ingredient } from "./ingredients";
 import { ingredients } from "./ingredients";
 import type { Entree } from "./entrees";
 import { entrees } from "./entrees";
+import type { Side } from "./sides";
+import { sides } from "./sides";
+import type { Drink } from "./drinks";
+import { drinks } from "./drinks";
 
 function selectRandomElement<T>(list: T[]): T {
   const randomIndex = Math.floor(Math.random() * list.length);
@@ -20,9 +24,36 @@ export function createOrderString(
   return order;
 }
 
+export function createMealString(
+  entree: Entree,
+  selectedIngredients: Ingredient[],
+  side: Side,
+  drink: Drink,
+): string {
+  let meal = `Your meal is a ${entree.name} with`;
+  for (let i = 0; i < selectedIngredients.length - 1; i++) {
+    meal += ` ${selectedIngredients[i].name},`;
+  }
+  meal += ` and ${selectedIngredients[selectedIngredients.length - 1].name},`;
+  meal += ` with ${side.name}, and a ${drink.name}.`;
+  return meal;
+}
+
+function randomiseSide(isBreakfast: boolean): Side {
+  const availableSides = isBreakfast
+    ? sides.filter((side) => side.isBreakfast)
+    : sides.filter((side) => side.isDinner);
+  return selectRandomElement(availableSides);
+}
+
+function randomiseDrink(): Drink {
+  return selectRandomElement(drinks);
+}
+
 export function randomiseOrder(
   isVegetarian: boolean,
   isBreakfast: boolean,
+  isMeal: boolean,
 ): string {
   const availableEntrees = isBreakfast
     ? entrees.filter((entree) => entree.isBreakfast)
@@ -62,5 +93,15 @@ export function randomiseOrder(
       }
     }
   }
-  return createOrderString(selectedEntree, selectedIngredients);
+
+  if (isMeal) {
+    return createMealString(
+      selectedEntree,
+      selectedIngredients,
+      randomiseSide(isBreakfast),
+      randomiseDrink(),
+    );
+  } else {
+    return createOrderString(selectedEntree, selectedIngredients);
+  }
 }

@@ -18,8 +18,6 @@ describe("randomiseOrder function", () => {
       {
         name: "burrito",
         ingredients: {
-          rice: [],
-          beans: [],
           protein: [],
           addition: ["cheese", "pico"],
           sauce: ["tomatillo salsa"],
@@ -75,14 +73,31 @@ describe("randomiseOrder function", () => {
       ],
     },
   }));
+  vi.mock("./sides", () => ({
+    sides: [
+      {
+        name: "fries",
+        isBreakfast: false,
+        isDinner: true,
+      },
+      {
+        name: "a hashbrown",
+        isBreakfast: true,
+        isDinner: false,
+      },
+    ],
+  }));
+  vi.mock("./drinks", () => ({
+    drinks: [{ name: "coke" }],
+  }));
 
   test("Should select breakfast entree when isBreakfast is true", () => {
-    const order = randomiseOrder(false, true);
+    const order = randomiseOrder(false, true, false);
     expect(order).toContain("breakfast burrito");
   });
 
   test("Should select breakfast ingredients when isBreakfast is true", () => {
-    const order = randomiseOrder(false, true);
+    const order = randomiseOrder(false, true, false);
     expect(order).toContain("breakfast burrito");
     expect(order).toContain("bacon");
     expect(order).toContain("guacamole");
@@ -90,49 +105,46 @@ describe("randomiseOrder function", () => {
   });
 
   test("Should skip category when there is no addable ingredients", () => {
-    const order = randomiseOrder(true, true);
+    const order = randomiseOrder(true, true, false);
     expect(order).toContain("breakfast burrito");
     expect(order).toContain("errorIngredient");
     expect(order).toContain("guacamole");
     expect(order).toContain("herb mayo");
   });
-});
 
-describe("createOrderString function", () => {
-  test("Should add names of selected ingredients to order string", () => {
-    const entree = {
-      name: "breakfast burrito",
-      ingredients: {
-        protein: [],
-        addition: ["cheese", "a hashbrown", "pico", "scrambled eggs"],
-        sauce: [],
-      },
-      isBreakfast: true,
-      isDinner: false,
-    };
-    const selectedIngredients = [
-      {
-        name: "bacon",
-        isVegetarian: false,
-        isBreakfast: true,
-        isDinner: false,
-      },
-      {
-        name: "guacamole",
-        isVegetarian: true,
-        isBreakfast: true,
-        isDinner: true,
-      },
-      {
-        name: "herb mayo",
-        isVegetarian: true,
-        isBreakfast: true,
-        isDinner: true,
-      },
-    ];
-    const result = createOrderString(entree, selectedIngredients);
-    expect(result).toBe(
-      "Your order is a breakfast burrito with bacon, guacamole, and herb mayo.",
-    );
+  describe("createOrderString function", () => {
+    test("Should add names of selected ingredients to order string", () => {
+      const result = randomiseOrder(false, true, false);
+      expect(result).toBe(
+        "Your order is a breakfast burrito with bacon, guacamole, and herb mayo.",
+      );
+    });
+  });
+
+  describe("randomiseSide function", () => {
+    test("Should add side when isMeal is true", () => {
+      const order = randomiseOrder(false, false, true);
+      expect(order).toContain("fries");
+    });
+    test("Should add breakfast side when isBreakfast is true", () => {
+      const order = randomiseOrder(false, true, true);
+      expect(order).toContain("a hashbrown");
+    });
+  });
+
+  describe("randomiseDrink function", () => {
+    test("Should add drink when is Meal is true", () => {
+      const order = randomiseOrder(false, false, true);
+      expect(order).toContain("coke");
+    });
+  });
+
+  describe("createMenuString function", () => {
+    test("Order string should contain a side and drink when isMeal is true", () => {
+      const result = randomiseOrder(false, true, true);
+      expect(result).toBe(
+        "Your meal is a breakfast burrito with bacon, guacamole, and herb mayo, with a hashbrown, and a coke.",
+      );
+    });
   });
 });
