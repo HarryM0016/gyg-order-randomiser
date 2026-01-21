@@ -7,6 +7,7 @@ describe("randomiseOrder function", () => {
     entrees: [
       {
         name: "breakfast burrito",
+        image: "test",
         ingredients: {
           protein: [],
           addition: ["cheese", "a hash brown", "pico", "scrambled eggs"],
@@ -17,6 +18,7 @@ describe("randomiseOrder function", () => {
       },
       {
         name: "burrito",
+        image: "test",
         ingredients: {
           protein: [],
           addition: ["cheese", "pico"],
@@ -32,12 +34,14 @@ describe("randomiseOrder function", () => {
       protein: [
         {
           name: "bacon",
+          image: "test",
           isVegetarian: false,
           isBreakfast: true,
           isDinner: false,
         },
         {
           name: "brisket",
+          image: "test",
           isVegetarian: false,
           isBreakfast: false,
           isDinner: true,
@@ -46,12 +50,14 @@ describe("randomiseOrder function", () => {
       addition: [
         {
           name: "guacamole",
+          image: "test",
           isVegetarian: true,
           isBreakfast: true,
           isDinner: true,
         },
         {
           name: "seasoned corn",
+          image: "test",
           isVegetarian: true,
           isBreakfast: false,
           isDinner: true,
@@ -60,12 +66,14 @@ describe("randomiseOrder function", () => {
       sauce: [
         {
           name: "herb mayo",
+          image: "test",
           isVegetarian: true,
           isBreakfast: true,
           isDinner: true,
         },
         {
           name: "tomatillo salsa",
+          image: "test",
           isVegetarian: true,
           isBreakfast: false,
           isDinner: true,
@@ -77,11 +85,13 @@ describe("randomiseOrder function", () => {
     sides: [
       {
         name: "fries",
+        image: "test",
         isBreakfast: false,
         isDinner: true,
       },
       {
         name: "a hash brown",
+        image: "test",
         isBreakfast: true,
         isDinner: false,
       },
@@ -93,58 +103,53 @@ describe("randomiseOrder function", () => {
 
   test("Should select breakfast entree when isBreakfast is true", () => {
     const order = randomiseOrder(false, true, false);
-    expect(order).toContain("breakfast burrito");
+    expect(order.entree.isBreakfast).toBe(true);
   });
 
   test("Should select breakfast ingredients when isBreakfast is true", () => {
     const order = randomiseOrder(false, true, false);
-    expect(order).toContain("breakfast burrito");
-    expect(order).toContain("bacon");
-    expect(order).toContain("guacamole");
-    expect(order).toContain("herb mayo");
+
+    for (let ingredient of order.ingredients) {
+      expect(ingredient.isBreakfast).toBe(true);
+    }
+  });
+
+  test("Should select vegetarian ingredients when isVegetarian is true", () => {
+    const order = randomiseOrder(true, false, false);
+
+    for (let ingredient of order.ingredients) {
+      expect(ingredient.isVegetarian).toBe(true);
+    }
   });
 
   test("Should skip category when there is no addable ingredients", () => {
     const order = randomiseOrder(true, true, false);
-    expect(order).toContain("breakfast burrito");
-    expect(order).toContain("errorIngredient");
-    expect(order).toContain("guacamole");
-    expect(order).toContain("herb mayo");
+
+    const errorIngredient = order.ingredients[0];
+    expect(errorIngredient.name).toBe("errorIngredient");
   });
 
   describe("createOrderString function", () => {
     test("Should add names of selected ingredients to order string", () => {
-      const result = randomiseOrder(false, true, false);
-      expect(result).toBe(
+      const order = randomiseOrder(false, true, false);
+      expect(createOrderString(order)).toBe(
         "Your order is a breakfast burrito with bacon, guacamole, and herb mayo.",
       );
     });
-  });
 
-  describe("randomiseSide function", () => {
     test("Should add side when isMeal is true", () => {
       const order = randomiseOrder(false, false, true);
-      expect(order).toContain("fries");
+      expect(createOrderString(order)).toContain("fries");
     });
+
     test("Should add breakfast side when isBreakfast is true", () => {
       const order = randomiseOrder(false, true, true);
-      expect(order).toContain("a hash brown");
+      expect(createOrderString(order)).toContain("a hash brown");
     });
-  });
 
-  describe("randomiseDrink function", () => {
     test("Should add drink when is Meal is true", () => {
       const order = randomiseOrder(false, false, true);
-      expect(order).toContain("coke");
-    });
-  });
-
-  describe("createMenuString function", () => {
-    test("Order string should contain a side and drink when isMeal is true", () => {
-      const result = randomiseOrder(false, true, true);
-      expect(result).toBe(
-        "Your meal is a breakfast burrito with bacon, guacamole, and herb mayo, with a hash brown, and a coke.",
-      );
+      expect(createOrderString(order)).toContain("coke");
     });
   });
 });

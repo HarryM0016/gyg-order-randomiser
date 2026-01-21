@@ -57,7 +57,7 @@ function App() {
         isDinner: true,
       },
     ],
-    type: "order"
+    type: "order",
   });
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isBreakfast, setIsBreakfast] = useState(false);

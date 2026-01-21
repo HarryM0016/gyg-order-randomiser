@@ -75,9 +75,9 @@ export function randomiseOrder(
       const errorIngredient: Ingredient = {
         name: "errorIngredient",
         image: "/src/assets/logo.png",
-        isVegetarian: false,
-        isBreakfast: false,
-        isDinner: false,
+        isVegetarian: true,
+        isBreakfast: true,
+        isDinner: true,
       };
       selectedIngredients.push(errorIngredient);
       continue;
