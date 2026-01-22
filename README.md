@@ -6,7 +6,6 @@ Additionally, the app also includes a checkbox to enable only vegetarian options
 
 # Planned Additions
 
-- Meal randomiser, including a random entree, side and drink
 - Return total cost of order and option to limit order price
 - Add coffee
 - Add spicy and mild
