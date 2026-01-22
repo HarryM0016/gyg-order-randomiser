@@ -74,7 +74,7 @@ export function randomiseOrder(
       console.log("Skipping category - no addable ingredients");
       const errorIngredient: Ingredient = {
         name: "errorIngredient",
-        image: "/src/assets/logo.png",
+        image: "/src/assets/images/placeholder.png",
         isVegetarian: true,
         isBreakfast: true,
         isDinner: true,

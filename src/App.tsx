@@ -6,59 +6,10 @@ import type { Order } from "./randomiser";
 import VegetarianCheckbox from "./VegetarianCheckbox";
 import BreakfastCheckbox from "./BreakfastCheckbox";
 import MealCheckbox from "./MealCheckbox";
+import { defaultOrder } from "./assets/DefaultOrder";
 
 function App() {
-  const [order, setOrder] = useState<Order>({
-    entree: {
-      name: "burrito",
-      image: "/src/assets/images/entrees/burrito.png",
-      ingredients: {
-        protein: [],
-        addition: ["cheese", "pico"],
-        sauce: ["tomatillo salsa"],
-      },
-      isBreakfast: false,
-      isDinner: true,
-    },
-    ingredients: [
-      {
-        name: "white rice",
-        image: "/src/assets/images/ingredients/rice/white-rice.png",
-        isVegetarian: true,
-        isBreakfast: false,
-        isDinner: true,
-      },
-      {
-        name: "black beans",
-        image: "/src/assets/images/ingredients/beans/black-beans.png",
-        isVegetarian: true,
-        isBreakfast: false,
-        isDinner: true,
-      },
-      {
-        name: "brisket",
-        image: "/src/assets/images/ingredients/protein/brisket.png",
-        isVegetarian: false,
-        isBreakfast: false,
-        isDinner: true,
-      },
-      {
-        name: "guacamole",
-        image: "/src/assets/images/ingredients/addition/guacamole.png",
-        isVegetarian: true,
-        isBreakfast: true,
-        isDinner: true,
-      },
-      {
-        name: "sour cream",
-        image: "/src/assets/images/ingredients/sauce/sour-cream.png",
-        isVegetarian: true,
-        isBreakfast: true,
-        isDinner: true,
-      },
-    ],
-    type: "order",
-  });
+  const [order, setOrder] = useState<Order>(defaultOrder);
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isBreakfast, setIsBreakfast] = useState(false);
   const [isMeal, setIsMeal] = useState(false);
@@ -96,7 +47,42 @@ function App() {
             Randomise
           </button>
         </div>
-        <div className="slot-container">{createOrderString(order)}</div>
+        <div className="slot-container">
+          <div className="slot-image-container">
+            <img
+              src={order.entree.image}
+              alt={order.entree.name}
+              className="slot-image"
+            />
+            {order.ingredients.map((ing) => (
+              <img
+                key={ing.name}
+                src={ing.image ?? "/src/assets/images/placeholder.png"}
+                alt={ing.name}
+                className="slot-image"
+              />
+            ))}
+
+            {order.side?.image && (
+              <img
+                src={order.side.image}
+                alt={order.side.name}
+                className="slot-image"
+              />
+            )}
+
+            {order.drink?.image && (
+              <img
+                src={order.drink.image}
+                alt={order.drink.name}
+                className="slot-image"
+              />
+            )}
+          </div>
+          <div className="slot-message-container">
+            {createOrderString(order)}
+          </div>
+        </div>
       </div>
     </>
   );
