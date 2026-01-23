@@ -3,7 +3,7 @@ import { describe, expect, test, vi } from "vitest";
 import "@testing-library/jest-dom";
 
 describe("randomiseOrder function", () => {
-  vi.mock("./entrees", () => ({
+  vi.mock("../data/entrees", () => ({
     entrees: [
       {
         name: "breakfast burrito",
@@ -29,7 +29,7 @@ describe("randomiseOrder function", () => {
       },
     ],
   }));
-  vi.mock("./ingredients", () => ({
+  vi.mock("../data/ingredients", () => ({
     ingredients: {
       protein: [
         {
@@ -81,7 +81,7 @@ describe("randomiseOrder function", () => {
       ],
     },
   }));
-  vi.mock("./sides", () => ({
+  vi.mock("../data/sides", () => ({
     sides: [
       {
         name: "fries",
@@ -97,7 +97,7 @@ describe("randomiseOrder function", () => {
       },
     ],
   }));
-  vi.mock("./drinks", () => ({
+  vi.mock("../data/drinks", () => ({
     drinks: [{ name: "coke" }],
   }));
 

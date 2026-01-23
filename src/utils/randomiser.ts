@@ -1,11 +1,11 @@
-import type { Ingredient } from "./ingredients";
-import { ingredients } from "./ingredients";
-import type { Entree } from "./entrees";
-import { entrees } from "./entrees";
-import type { Side } from "./sides";
-import { sides } from "./sides";
-import type { Drink } from "./drinks";
-import { drinks } from "./drinks";
+import type { Ingredient } from "../data/ingredients";
+import { ingredients } from "../data/ingredients";
+import type { Entree } from "../data/entrees";
+import { entrees } from "../data/entrees";
+import type { Side } from "../data/sides";
+import { sides } from "../data/sides";
+import type { Drink } from "../data/drinks";
+import { drinks } from "../data/drinks";
 
 export type Order = {
   entree: Entree;

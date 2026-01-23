@@ -1,4 +1,4 @@
-import type { Order } from "../randomiser";
+import type { Order } from "../utils/randomiser";
 
 export const defaultOrder: Order = {
   entree: {
