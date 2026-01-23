@@ -1,12 +1,12 @@
 import { useState } from "react";
 import gygLogo from "./assets/gyg.svg";
 import "./App.css";
-import { randomiseOrder, createOrderString } from "./randomiser";
-import type { Order } from "./randomiser";
-import VegetarianCheckbox from "./VegetarianCheckbox";
-import BreakfastCheckbox from "./BreakfastCheckbox";
-import MealCheckbox from "./MealCheckbox";
-import { defaultOrder } from "./assets/DefaultOrder";
+import { randomiseOrder, createOrderString } from "./utils/randomiser";
+import type { Order } from "./utils/randomiser";
+import VegetarianCheckbox from "./components/VegetarianCheckbox";
+import BreakfastCheckbox from "./components/BreakfastCheckbox";
+import MealCheckbox from "./components/MealCheckbox";
+import { defaultOrder } from "./components/DefaultOrder";
 
 function App() {
   const [order, setOrder] = useState<Order>(defaultOrder);
