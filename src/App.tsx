@@ -1,6 +1,6 @@
 import { useState } from "react";
 import gygLogo from "./assets/gyg.svg";
-import "./App.css";
+import "./styles/App.css";
 import { randomiseOrder, createOrderString } from "./utils/randomiser";
 import type { Order } from "./utils/randomiser";
 import VegetarianCheckbox from "./components/VegetarianCheckbox";
