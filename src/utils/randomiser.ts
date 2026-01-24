@@ -36,10 +36,15 @@ export function createOrderString(order: Order): string {
   }
 }
 
-function randomiseSide(isBreakfast: boolean): Side {
-  const availableSides = isBreakfast
+function randomiseSide(isBreakfast: boolean, isVegetarian: boolean): Side {
+  let availableSides = isBreakfast
     ? sides.filter((side) => side.isBreakfast)
     : sides.filter((side) => side.isDinner);
+
+  availableSides = availableSides.filter(
+    (side) => !isVegetarian || side.isVegetarian,
+  );
+
   return selectRandomElement(availableSides);
 }
 
@@ -98,7 +103,7 @@ export function randomiseOrder(
     type: "order",
   };
   if (isMeal) {
-    order.side = randomiseSide(isBreakfast);
+    order.side = randomiseSide(isBreakfast, isVegetarian);
     order.drink = randomiseDrink();
     order.type = "meal";
   }
