@@ -44,7 +44,7 @@ function randomiseSide(isBreakfast: boolean, isVegetarian: boolean): Side {
   availableSides = availableSides.filter(
     (side) => !isVegetarian || side.isVegetarian,
   );
-  
+
   return selectRandomElement(availableSides);
 }
 
