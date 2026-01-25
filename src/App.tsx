@@ -16,15 +16,17 @@ function App() {
 
   return (
     <>
-      <a
-        href="https://www.guzmanygomez.com.au/"
-        target="_blank"
-        title="Guzman Y Gomez"
-      >
-        <img src={gygLogo} className="logo" />
-      </a>
-      <header></header>
-      <div className="container">
+      <div className="header-container">
+        <a
+          href="https://www.guzmanygomez.com.au/"
+          target="_blank"
+          title="Guzman Y Gomez"
+        >
+          <img src={gygLogo} className="logo" />
+        </a>
+        <header></header>
+      </div>
+      <div className="app-container">
         <div className="side-container">
           <h1>Select Criteria</h1>
           <div className="checkbox-container">
