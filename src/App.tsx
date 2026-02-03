@@ -51,39 +51,45 @@ function App() {
         </div>
         <div className="slot-container">
           <div className="slot-image-container">
-            <img
-              src={order.entree.image}
-              alt={order.entree.name}
-              className="slot-image"
-            />
-            {order.ingredients.map((ing) => (
+            <div className="slot-column">
               <img
-                key={ing.name}
-                src={ing.image ?? "/src/assets/images/placeholder.png"}
-                alt={ing.name}
+                src={order.entree.image}
+                alt={order.entree.name}
                 className="slot-image"
               />
+            </div>
+            {order.ingredients.map((ing) => (
+              <div className="slot-column">
+                <img
+                  key={ing.name}
+                  src={ing.image ?? "/src/assets/images/placeholder.png"}
+                  alt={ing.name}
+                  className="slot-image"
+                />
+              </div>
             ))}
 
             {order.side?.image && (
-              <img
-                src={order.side.image}
-                alt={order.side.name}
-                className="slot-image"
-              />
+              <div className="slot-column">
+                <img
+                  src={order.side.image}
+                  alt={order.side.name}
+                  className="slot-image"
+                />
+              </div>
             )}
 
             {order.drink?.image && (
-              <img
-                src={order.drink.image}
-                alt={order.drink.name}
-                className="slot-image"
-              />
+              <div className="slot-column">
+                <img
+                  src={order.drink.image}
+                  alt={order.drink.name}
+                  className="slot-image"
+                />
+              </div>
             )}
           </div>
-          <div className="slot-message-container">
-            {createOrderString(order)}
-          </div>
+          <p className="slot-message-container">{createOrderString(order)}</p>
         </div>
       </div>
     </>

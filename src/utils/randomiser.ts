@@ -9,7 +9,7 @@ import { drinks } from "../data/drinks";
 
 export type Order = {
   entree: Entree;
-  ingredients: Ingredient[]; // ^ Maybe don't make optional because it shouldn't be
+  ingredients: Ingredient[];
   side?: Side;
   drink?: Drink;
   type: "order" | "meal";
@@ -29,11 +29,10 @@ export function createOrderString(order: Order): string {
   if (order.side && order.drink) {
     orderString += ` and ${order.ingredients[order.ingredients.length - 1].name},`;
     orderString += ` with ${order.side.name}, and a ${order.drink.name}.`;
-    return orderString;
   } else {
     orderString += ` and ${order.ingredients[order.ingredients.length - 1].name}.`;
-    return orderString;
   }
+  return orderString;
 }
 
 function randomiseSide(isBreakfast: boolean, isVegetarian: boolean): Side {

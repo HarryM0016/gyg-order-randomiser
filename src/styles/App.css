@@ -124,5 +124,13 @@ header {
 
 .slot-image {
   /* Width is 12.5% (100/8) as there can be at most 8 slot-images on screen */
+  width: 100%;
+}
+
+.slot-column {
   width: 12.5%;
+  height: fit-content;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
 }
