@@ -4,6 +4,9 @@ import "./styles/App.css";
 import { randomiseOrder, createOrderString } from "./utils/randomiser";
 import type { Order } from "./utils/randomiser";
 import { entrees } from "./data/entrees";
+import { ingredients } from "./data/ingredients";
+import { sides } from "./data/sides";
+import { drinks } from "./data/drinks";
 import VegetarianCheckbox from "./components/VegetarianCheckbox";
 import BreakfastCheckbox from "./components/BreakfastCheckbox";
 import MealCheckbox from "./components/MealCheckbox";
@@ -16,7 +19,23 @@ function App() {
   const [isBreakfast, setIsBreakfast] = useState(false);
   const [isMeal, setIsMeal] = useState(false);
 
-  const [entreeTarget, setEntreeTarget] = useState(0);
+  const [entreeTarget, setEntreeTarget] = useState(1);
+  const [sideTarget, setSideTarget] = useState(0)
+  const [drinkTarget, setDrinkTarget] = useState(0)
+  const [randomiseCount, setRandomiseCount] = useState(0);
+
+  const handleRandomise = () => {
+    const newOrder = randomiseOrder(isVegetarian, isBreakfast, isMeal);
+    setOrder(newOrder);
+    setEntreeTarget(newOrder.entree.index);
+
+    if (newOrder.side && newOrder.drink) {
+      setSideTarget(newOrder.side.index)
+      setDrinkTarget(newOrder.drink.index)
+    }
+    setRandomiseCount((c) => c + 1);
+  };
+
 
   return (
     <>
@@ -46,16 +65,7 @@ function App() {
           </div>
           <button
             className="randomise-button"
-            onClick={() => {
-              const newOrder = randomiseOrder(
-                isVegetarian,
-                isBreakfast,
-                isMeal,
-              );
-              setOrder(newOrder);
-              setEntreeTarget(newOrder.entree.index);
-              console.log(newOrder.entree.index, newOrder.entree.name);
-            }}
+            onClick={handleRandomise}
           >
             Randomise!
           </button>
@@ -63,45 +73,20 @@ function App() {
         <div className="slot-container">
           <div className="slot-column-container">
             <div className="slot-column">
-              <VerticalCarousel slides={entrees} targetIndex={entreeTarget} />
+              <VerticalCarousel slides={entrees} targetIndex={entreeTarget} spinTrigger={randomiseCount} />
             </div>
-            {/* <div className="slot-column">
-              <img
-                src={order.entree.image}
-                alt={order.entree.name}
-                className="slot-image"
-              />
-            </div>
-            {order.ingredients.map((ing) => (
-              <div className="slot-column">
-                <img
-                  key={ing.name}
-                  src={ing.image ?? "/src/assets/images/placeholder.png"}
-                  alt={ing.name}
-                  className="slot-image"
-                />
-              </div>
-            ))}
 
             {order.side?.image && (
               <div className="slot-column">
-                <img
-                  src={order.side.image}
-                  alt={order.side.name}
-                  className="slot-image"
-                />
+                <VerticalCarousel slides={sides} targetIndex={sideTarget} spinTrigger={randomiseCount} />
               </div>
             )}
 
             {order.drink?.image && (
               <div className="slot-column">
-                <img
-                  src={order.drink.image}
-                  alt={order.drink.name}
-                  className="slot-image"
-                />
+                <VerticalCarousel slides={drinks} targetIndex={drinkTarget} spinTrigger={randomiseCount} />
               </div>
-            )} */}
+            )}
           </div>
           <p className="slot-message-container">{createOrderString(order)}</p>
         </div>
