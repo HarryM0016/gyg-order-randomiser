@@ -1,6 +1,6 @@
-export type Side = {
-  name: string;
-  image: string;
+import type { SlideItem } from "./types";
+
+export type Side = SlideItem & {
   isVegetarian: boolean;
   isBreakfast: boolean;
   isDinner: boolean;
@@ -13,6 +13,7 @@ export const sides: Side[] = [
     isVegetarian: true,
     isBreakfast: true,
     isDinner: false,
+    index: 0,
   },
   {
     name: "chicken tenders and fries",
@@ -20,6 +21,7 @@ export const sides: Side[] = [
     isVegetarian: false,
     isBreakfast: false,
     isDinner: true,
+    index: 1,
   },
   {
     name: "chicken tenders",
@@ -27,6 +29,7 @@ export const sides: Side[] = [
     isVegetarian: false,
     isBreakfast: false,
     isDinner: true,
+    index: 2,
   },
   {
     name: "churros",
@@ -34,6 +37,7 @@ export const sides: Side[] = [
     isVegetarian: true,
     isBreakfast: true,
     isDinner: true,
+    index: 3,
   },
   {
     name: "corn chips",
@@ -41,6 +45,7 @@ export const sides: Side[] = [
     isVegetarian: true,
     isBreakfast: false,
     isDinner: true,
+    index: 4,
   },
   {
     name: "fries",
@@ -48,6 +53,7 @@ export const sides: Side[] = [
     isVegetarian: true,
     isBreakfast: false,
     isDinner: true,
+    index: 5,
   },
   {
     name: "guac and chips",
@@ -55,6 +61,7 @@ export const sides: Side[] = [
     isVegetarian: true,
     isBreakfast: false,
     isDinner: true,
+    index: 6,
   },
   {
     name: "queso fries",
@@ -62,6 +69,7 @@ export const sides: Side[] = [
     isVegetarian: true,
     isBreakfast: false,
     isDinner: false,
+    index: 7,
   },
   {
     name: "street corn",
@@ -69,6 +77,7 @@ export const sides: Side[] = [
     isVegetarian: true,
     isBreakfast: false,
     isDinner: true,
+    index: 8,
   },
   {
     name: "toast",
@@ -76,5 +85,6 @@ export const sides: Side[] = [
     isVegetarian: true,
     isBreakfast: true,
     isDinner: false,
+    index: 9,
   },
 ];

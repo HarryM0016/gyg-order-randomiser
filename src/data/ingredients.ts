@@ -1,6 +1,6 @@
-export type Ingredient = {
-  name: string;
-  image: string;
+import type { SlideItem } from "./types";
+
+export type Ingredient = SlideItem & {
   isVegetarian: boolean;
   isBreakfast: boolean;
   isDinner: boolean;
@@ -14,6 +14,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 0,
     },
     {
       name: "white rice",
@@ -21,6 +22,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 1,
     },
   ],
   beans: [
@@ -30,6 +32,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 0,
     },
     {
       name: "pinto beans",
@@ -37,6 +40,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 1,
     },
   ],
   protein: [
@@ -46,6 +50,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: false,
       isBreakfast: true,
       isDinner: false,
+      index: 0,
     },
     {
       name: "brisket",
@@ -53,6 +58,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: false,
       isBreakfast: false,
       isDinner: true,
+      index: 1,
     },
     {
       name: "chicken tenders",
@@ -60,6 +66,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: false,
       isBreakfast: false,
       isDinner: true,
+      index: 2,
     },
     {
       name: "chorizo",
@@ -67,6 +74,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: false,
       isBreakfast: true,
       isDinner: false,
+      index: 3,
     },
     {
       name: "grilled chicken",
@@ -74,6 +82,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: false,
       isBreakfast: false,
       isDinner: true,
+      index: 4,
     },
     {
       name: "ground beef",
@@ -81,6 +90,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: false,
       isBreakfast: false,
       isDinner: true,
+      index: 5,
     },
     {
       name: "pork",
@@ -88,6 +98,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: false,
       isBreakfast: false,
       isDinner: true,
+      index: 6,
     },
     {
       name: "sauteed vegetables",
@@ -95,6 +106,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 7,
     },
     {
       name: "shitake mushroom",
@@ -102,6 +114,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 8,
     },
   ],
   addition: [
@@ -111,6 +124,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 0,
     },
     {
       name: "coriander",
@@ -118,6 +132,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 1,
     },
     {
       name: "crushed corn chips",
@@ -125,6 +140,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 2,
     },
     {
       name: "diced onions",
@@ -132,6 +148,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 3,
     },
     {
       name: "fresh jalapenos",
@@ -139,6 +156,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 4,
     },
     {
       name: "guacamole",
@@ -146,6 +164,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 5,
     },
     {
       name: "a hash brown",
@@ -153,6 +172,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: false,
+      index: 6,
     },
     {
       name: "lettuce",
@@ -160,6 +180,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 7,
     },
     {
       name: "pico",
@@ -167,6 +188,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 8,
     },
     {
       name: "pickled jalapenos",
@@ -174,6 +196,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 9,
     },
     {
       name: "queso",
@@ -181,6 +204,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 10,
     },
     {
       name: "scrambled eggs",
@@ -188,6 +212,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: false,
+      index: 11,
     },
     {
       name: "seasoned corn",
@@ -195,6 +220,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 12,
     },
   ],
   sauce: [
@@ -204,6 +230,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 0,
     },
     {
       name: "habanero salsa",
@@ -211,6 +238,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 1,
     },
     {
       name: "herb mayo",
@@ -218,6 +246,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 2,
     },
     {
       name: "jalapeno ketchup",
@@ -225,6 +254,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 3,
     },
     {
       name: "ketchup",
@@ -232,6 +262,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 4,
     },
     {
       name: "roasted jalapeno salsa",
@@ -239,6 +270,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 5,
     },
     {
       name: "smokey chipotle salsa",
@@ -246,6 +278,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 6,
     },
     {
       name: "sour cream",
@@ -253,6 +286,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: true,
       isDinner: true,
+      index: 7,
     },
     {
       name: "tomatillo salsa",
@@ -260,6 +294,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
+      index: 8,
     },
   ],
 };

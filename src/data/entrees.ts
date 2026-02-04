@@ -1,10 +1,9 @@
-export type Entree = {
-  name: string;
-  image: string;
+import type { SlideItem } from "./types";
+
+export type Entree = SlideItem & {
   ingredients: EntreeIngredients;
   isBreakfast: boolean;
   isDinner: boolean;
-  index: number;
 };
 
 type EntreeIngredients = {
