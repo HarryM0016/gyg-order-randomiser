@@ -11,13 +11,10 @@
   background-color: var(--color-bg-light);
 }
 
-header {
-  height: 4rem;
+.header-container {
+  height: 20%;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: var(--color-dark);
+  display: flex;
 }
 
 .logo {
@@ -30,10 +27,13 @@ header {
   border-radius: 50%;
 }
 
-.header-container {
-  height: 20%;
+header {
+  height: 4rem;
   width: 100%;
-  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--color-dark);
 }
 
 .app-container {
@@ -61,29 +61,18 @@ header {
   flex-grow: 1;
 }
 
-.slot-container {
-  height: auto;
-  width: 75%;
-  display: flex;
-  background-color: var(--color-slot-bg);
-  border-radius: var(--border-radius);
-  justify-content: center;
-  flex-direction: column;
+.big-label {
+  display: inline-flex;
   align-items: center;
-  padding: 1rem;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
-.slot-image-container {
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.slot-message-container {
-  height: 10%;
-  display: flex;
-  justify-content: center;
+.big-checkbox {
+  transform: scale(2);
+  transform-origin: left center;
+  margin-right: 1rem;
 }
 
 .randomise-button {
@@ -108,29 +97,82 @@ header {
   background-color: var(--color-primary-hover);
 }
 
-.big-label {
-  display: inline-flex;
+.slot-container {
+  height: auto;
+  width: 75%;
+  display: flex;
+  background-color: var(--color-slot-bg);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1.5rem;
-  font-weight: bold;
+  padding: 1rem;
 }
 
-.big-checkbox {
-  transform: scale(2);
-  transform-origin: left center;
-  margin-right: 1rem;
+.slot-column-container {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slot-column {
+  width: 12.5%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.slot-inner-column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.slot-inner-column::before,
+.slot-inner-column::after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 84px;
+  pointer-events: none;
+}
+
+.slot-inner-column::before {
+  top: 0;
+  background: linear-gradient(
+    0deg,
+    hsla(0, 0%, 100%, 0) 0%,
+    var(--color-slot-bg) 100%
+  );
+}
+
+.slot-inner-column::after {
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    var(--color-slot-bg) 0%,
+    hsla(0, 0%, 100%, 0) 100%
+  );
 }
 
 .slot-image {
   /* Width is 12.5% (100/8) as there can be at most 8 slot-images on screen */
   width: 100%;
+  position: absolute;
 }
 
-.slot-column {
-  width: 12.5%;
-  height: fit-content;
+.slot-message-container {
+  height: 10%;
   display: flex;
-  overflow: hidden;
-  flex-direction: row;
+  justify-content: center;
 }

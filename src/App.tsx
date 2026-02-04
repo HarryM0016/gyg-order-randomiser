@@ -3,16 +3,20 @@ import gygLogo from "./assets/gyg.svg";
 import "./styles/App.css";
 import { randomiseOrder, createOrderString } from "./utils/randomiser";
 import type { Order } from "./utils/randomiser";
+import { entrees } from "./data/entrees";
 import VegetarianCheckbox from "./components/VegetarianCheckbox";
 import BreakfastCheckbox from "./components/BreakfastCheckbox";
 import MealCheckbox from "./components/MealCheckbox";
 import { defaultOrder } from "./components/DefaultOrder";
+import VerticalCarousel from "./components/VerticalCarousel";
 
 function App() {
   const [order, setOrder] = useState<Order>(defaultOrder);
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isBreakfast, setIsBreakfast] = useState(false);
   const [isMeal, setIsMeal] = useState(false);
+
+  const [entreeTarget, setEntreeTarget] = useState(0);
 
   return (
     <>
@@ -42,16 +46,26 @@ function App() {
           </div>
           <button
             className="randomise-button"
-            onClick={() =>
-              setOrder(randomiseOrder(isVegetarian, isBreakfast, isMeal))
-            }
+            onClick={() => {
+              const newOrder = randomiseOrder(
+                isVegetarian,
+                isBreakfast,
+                isMeal,
+              );
+              setOrder(newOrder);
+              setEntreeTarget(newOrder.entree.index);
+              console.log(newOrder.entree.index, newOrder.entree.name);
+            }}
           >
-            Randomise
+            Randomise!
           </button>
         </div>
         <div className="slot-container">
-          <div className="slot-image-container">
+          <div className="slot-column-container">
             <div className="slot-column">
+              <VerticalCarousel slides={entrees} targetIndex={entreeTarget} />
+            </div>
+            {/* <div className="slot-column">
               <img
                 src={order.entree.image}
                 alt={order.entree.name}
@@ -87,7 +101,7 @@ function App() {
                   className="slot-image"
                 />
               </div>
-            )}
+            )} */}
           </div>
           <p className="slot-message-container">{createOrderString(order)}</p>
         </div>
