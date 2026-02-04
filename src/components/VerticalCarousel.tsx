@@ -13,7 +13,7 @@ export default function VerticalCarousel<T extends SlideItem>({ slides, targetIn
   const [isSpinning, setIsSpinning] = useState(false);
 
   const halfwayIndex = Math.ceil(slides.length / 2);
-  const itemHeight = 120;
+  const itemHeight = 160;
   const shuffleThreshold = halfwayIndex * itemHeight;
   // const visibleStyleThreshold = shuffleThreshold / 2;
 
@@ -44,7 +44,7 @@ export default function VerticalCarousel<T extends SlideItem>({ slides, targetIn
 
     return () => clearInterval(spinInterval);
     }
-  }, [targetIndex, slides.length, spinTrigger]);
+  }, [slides.length, spinTrigger]);
 
   
   const determinePlacement = (itemIndex: number) => {
