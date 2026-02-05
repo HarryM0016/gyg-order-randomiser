@@ -67,7 +67,7 @@ function App() {
             </div>
 
             {order.ingredients.map((ingredient) => (
-              <div className="slot-column">
+              <div key={ingredient.category} className="slot-column">
                 <VerticalCarousel
                   slides={ingredients[ingredient.category]}
                   targetIndex={ingredient.index}

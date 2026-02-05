@@ -43,7 +43,7 @@ export default function VerticalCarousel<T extends SlideItem>({
           clearInterval(spinInterval);
           setIsSpinning(false);
         }
-      }, 75);
+      }, 100);
 
       return () => clearInterval(spinInterval);
     }
