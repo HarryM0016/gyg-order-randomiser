@@ -1,48 +1,30 @@
 :root {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  font-weight: 600;
-
-  color-scheme: light dark;
-  color: #171717;
-  background-color: #f6f2ef;
+  --color-primary: #ffd204;
+  --color-primary-hover: #ffe167;
+  --color-dark: #171717;
+  --color-bg-light: #f6f2ef;
+  --color-text: #213547;
+  --color-slot-bg: #d6d0ad;
+  --border-radius: 16px;
+  --transition-speed: 0.25s;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
 
 body {
-  margin: 0;
+  height: 100%;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #ffd204;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  flex-direction: column;
 }

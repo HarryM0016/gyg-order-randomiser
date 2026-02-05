@@ -1,37 +1,52 @@
-header {
-  height: 76px;
+#root {
+  flex: 1;
+  padding: 1rem;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(14px, 2.5vw, 18px);
+  line-height: 1.5;
+  font-weight: 600;
+
+  color: var(--color-text);
+  background-color: var(--color-bg-light);
+}
+
+.header-container {
+  height: 20%;
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #171717;
+  display: flex;
 }
 
 .logo {
-  height: 110px;
-  width: 110px;
+  height: 6rem;
+  width: 6rem;
   position: absolute;
-  top: 16px;
-  left: 32px;
+  left: 1rem;
   z-index: 11;
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.16);
   border-radius: 50%;
 }
 
-.container {
-  height: auto;
+header {
+  height: 4rem;
   width: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--color-dark);
+}
+
+.app-container {
+  height: 80%;
+  width: 100%;
   display: flex;
   flex-flow: row;
-  top: 140px;
-  bottom: 40px;
   justify-content: space-around;
 }
 
 .side-container {
   height: auto;
-  width: 20%;
+  width: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,66 +59,6 @@ header {
   flex-direction: column;
   justify-content: space-evenly;
   flex-grow: 1;
-}
-
-.slot-container {
-  height: auto;
-  width: 75%;
-  top: 140px;
-  bottom: 140px;
-  display: flex;
-  background-color: #d6d0ad;
-  border-radius: 16px;
-  flex-direction: column;
-  align-items: center;
-}
-
-.slot-image-container {
-  height: 90%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.slot-message-container {
-  height: 10%;
-  width: 80%;
-  display: flex;
-  justify-content: center;
-}
-
-.randomise-button {
-  height: 60px;
-  background-color: #ffd204;
-  color: #171717;
-  text-transform: uppercase;
-  font-size: 22px;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease-out 0s;
-}
-
-.randomise-button:hover {
-  background-color: #ffe167;
-}
-
-.regular-button {
-  height: 40px;
-  padding-left: 12px;
-  padding-right: 12px;
-  background-color: #ffd204;
-  color: #171717;
-  text-shadow: 1px 1px 0 #fff;
-  font-size: 22px;
-  text-transform: uppercase;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease-out 0s;
 }
 
 .big-label {
@@ -120,6 +75,111 @@ header {
   margin-right: 1rem;
 }
 
-.slot-image {
+.randomise-button {
+  height: 4rem;
+  background-color: var(--color-primary);
+  color: var(--color-dark);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  border-radius: var(--border-radius);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-out 0s;
+  border: 1px solid transparent;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.randomise-button:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.slot-container {
+  height: auto;
+  width: 75%;
+  display: flex;
+  background-color: var(--color-slot-bg);
+  border-radius: var(--border-radius);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.slot-column-container {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slot-column {
   width: 12.5%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.slot-inner-column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.slot-inner-column::before,
+.slot-inner-column::after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  pointer-events: none;
+}
+
+.slot-inner-column::before {
+  top: 0;
+  background: linear-gradient(
+    0deg,
+    hsla(0, 0%, 100%, 0) 0%,
+    var(--color-slot-bg) 100%
+  );
+}
+
+.slot-inner-column::after {
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    var(--color-slot-bg) 0%,
+    hsla(0, 0%, 100%, 0) 100%
+  );
+}
+
+.slot-image {
+  width: 100%;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  position: absolute;
+  opacity: 0;
+}
+
+.slot-image.visible {
+  opacity: 1;
+}
+
+.slot-message-container {
+  height: 10%;
+  display: flex;
+  justify-content: center;
 }

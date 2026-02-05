@@ -1,15 +1,16 @@
 import type { Ingredient } from "../data/ingredients";
-import { ingredients } from "../data/ingredients";
 import type { Entree } from "../data/entrees";
-import { entrees } from "../data/entrees";
 import type { Side } from "../data/sides";
-import { sides } from "../data/sides";
 import type { Drink } from "../data/drinks";
+
+import { ingredients } from "../data/ingredients";
+import { entrees } from "../data/entrees";
+import { sides } from "../data/sides";
 import { drinks } from "../data/drinks";
 
 export type Order = {
   entree: Entree;
-  ingredients: Ingredient[]; // ^ Maybe don't make optional because it shouldn't be
+  ingredients: Ingredient[];
   side?: Side;
   drink?: Drink;
   type: "order" | "meal";
@@ -18,22 +19,6 @@ export type Order = {
 function selectRandomElement<T>(list: T[]): T {
   const randomIndex = Math.floor(Math.random() * list.length);
   return list[randomIndex];
-}
-
-export function createOrderString(order: Order): string {
-  let orderString = `Your ${order.type} is a ${order.entree.name} with`;
-  for (let i = 0; i < order.ingredients.length - 1; i++) {
-    orderString += ` ${order.ingredients[i].name},`;
-  }
-
-  if (order.side && order.drink) {
-    orderString += ` and ${order.ingredients[order.ingredients.length - 1].name},`;
-    orderString += ` with ${order.side.name}, and a ${order.drink.name}.`;
-    return orderString;
-  } else {
-    orderString += ` and ${order.ingredients[order.ingredients.length - 1].name}.`;
-    return orderString;
-  }
 }
 
 function randomiseSide(isBreakfast: boolean, isVegetarian: boolean): Side {
@@ -83,6 +68,8 @@ export function randomiseOrder(
         isVegetarian: true,
         isBreakfast: true,
         isDinner: true,
+        index: 0,
+        category: "addition",
       };
       selectedIngredients.push(errorIngredient);
       continue;
@@ -108,4 +95,19 @@ export function randomiseOrder(
     order.type = "meal";
   }
   return order;
+}
+
+export function createOrderString(order: Order): string {
+  let orderString = `Your ${order.type} is a ${order.entree.name} with`;
+  for (let i = 0; i < order.ingredients.length - 1; i++) {
+    orderString += ` ${order.ingredients[i].name},`;
+  }
+
+  if (order.side && order.drink) {
+    orderString += ` and ${order.ingredients[order.ingredients.length - 1].name},`;
+    orderString += ` with ${order.side.name}, and a ${order.drink.name}.`;
+  } else {
+    orderString += ` and ${order.ingredients[order.ingredients.length - 1].name}.`;
+  }
+  return orderString;
 }

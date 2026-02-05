@@ -1,6 +1,6 @@
-export type Entree = {
-  name: string;
-  image: string;
+import type { SlideItem } from "./types";
+
+export type Entree = SlideItem & {
   ingredients: EntreeIngredients;
   isBreakfast: boolean;
   isDinner: boolean;
@@ -27,6 +27,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: false,
     isDinner: true,
+    index: 0,
   },
   {
     name: "burrito",
@@ -40,6 +41,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: false,
     isDinner: true,
+    index: 1,
   },
   {
     name: "cali burrito",
@@ -51,6 +53,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: false,
     isDinner: true,
+    index: 2,
   },
   {
     name: "enchilada",
@@ -64,6 +67,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: false,
     isDinner: true,
+    index: 3,
   },
 
   {
@@ -76,6 +80,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: false,
     isDinner: true,
+    index: 4,
   },
   {
     name: "nachos",
@@ -88,6 +93,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: false,
     isDinner: true,
+    index: 5,
   },
   {
     name: "nacho fries",
@@ -99,6 +105,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: false,
     isDinner: true,
+    index: 6,
   },
   {
     name: "quesadilla",
@@ -110,6 +117,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: true,
     isDinner: true,
+    index: 7,
   },
   {
     name: "quesadilla plus",
@@ -121,6 +129,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: true,
     isDinner: true,
+    index: 8,
   },
   {
     name: "soft taco",
@@ -132,6 +141,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: false,
     isDinner: true,
+    index: 9,
   },
   {
     name: "avocado toast",
@@ -142,6 +152,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: true,
     isDinner: false,
+    index: 10,
   },
   {
     name: "breakfast bowl",
@@ -153,6 +164,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: true,
     isDinner: false,
+    index: 11,
   },
   {
     name: "breakfast burrito",
@@ -164,6 +176,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: true,
     isDinner: false,
+    index: 12,
   },
   {
     name: "breakfast taco",
@@ -175,6 +188,7 @@ export const entrees: Entree[] = [
     },
     isBreakfast: true,
     isDinner: false,
+    index: 13,
   },
   {
     name: "guac toast",
@@ -185,5 +199,6 @@ export const entrees: Entree[] = [
     },
     isBreakfast: true,
     isDinner: false,
+    index: 14,
   },
 ];
