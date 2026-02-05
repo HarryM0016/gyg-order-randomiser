@@ -20,7 +20,7 @@ export const defaultOrder: Order = {
       isVegetarian: true,
       isBreakfast: false,
       isDinner: true,
-      index: 1,
+      index: 0,
       category: "rice",
     },
     {

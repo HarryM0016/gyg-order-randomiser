@@ -17,9 +17,9 @@ export default function VerticalCarousel<T extends SlideItem>({
   const [isSpinning, setIsSpinning] = useState(false);
 
   const halfwayIndex = Math.ceil(slides.length / 2);
-  const itemHeight = 160;
+  const itemHeight = 200;
   const shuffleThreshold = halfwayIndex * itemHeight;
-  // const visibleStyleThreshold = shuffleThreshold / 2;
+  const visibleStyleThreshold = shuffleThreshold / 2;
 
   useEffect(() => {
     if (!isSpinning && targetIndex !== undefined) {
@@ -43,7 +43,7 @@ export default function VerticalCarousel<T extends SlideItem>({
           clearInterval(spinInterval);
           setIsSpinning(false);
         }
-      }, 100);
+      }, 150);
 
       return () => clearInterval(spinInterval);
     }
@@ -71,16 +71,24 @@ export default function VerticalCarousel<T extends SlideItem>({
 
       return -(activeIndex - itemIndex) * itemHeight;
     }
+    return 0;
   };
 
   return (
     <div className="slot-inner-column">
       {slides.map((item, i) => (
         <img
-          key={item.name}
+          key={item.index}
           src={item.image ?? "/src/assets/images/placeholder.png"}
           alt={item.name}
-          className="slot-image"
+          className={[
+            "slot-image",
+            activeIndex === i && "active",
+            Math.abs(determinePlacement(i)) <= visibleStyleThreshold &&
+              "visible",
+          ]
+            .filter(Boolean)
+            .join(" ")}
           style={{ transform: `translateY(${determinePlacement(i)}px)` }}
         />
       ))}
