@@ -68,6 +68,8 @@ export function randomiseOrder(
         isVegetarian: true,
         isBreakfast: true,
         isDinner: true,
+        index: 0,
+        category: "addition",
       };
       selectedIngredients.push(errorIngredient);
       continue;

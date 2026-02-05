@@ -18,24 +18,13 @@ function App() {
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isBreakfast, setIsBreakfast] = useState(false);
   const [isMeal, setIsMeal] = useState(false);
-
-  const [entreeTarget, setEntreeTarget] = useState(1);
-  const [sideTarget, setSideTarget] = useState(0)
-  const [drinkTarget, setDrinkTarget] = useState(0)
   const [randomiseCount, setRandomiseCount] = useState(0);
 
   const handleRandomise = () => {
     const newOrder = randomiseOrder(isVegetarian, isBreakfast, isMeal);
     setOrder(newOrder);
-    setEntreeTarget(newOrder.entree.index);
-
-    if (newOrder.side && newOrder.drink) {
-      setSideTarget(newOrder.side.index)
-      setDrinkTarget(newOrder.drink.index)
-    }
     setRandomiseCount((c) => c + 1);
   };
-
 
   return (
     <>
@@ -63,28 +52,47 @@ function App() {
             />
             <MealCheckbox isChecked={isMeal} onCheck={setIsMeal} />
           </div>
-          <button
-            className="randomise-button"
-            onClick={handleRandomise}
-          >
+          <button className="randomise-button" onClick={handleRandomise}>
             Randomise!
           </button>
         </div>
         <div className="slot-container">
           <div className="slot-column-container">
             <div className="slot-column">
-              <VerticalCarousel slides={entrees} targetIndex={entreeTarget} spinTrigger={randomiseCount} />
+              <VerticalCarousel
+                slides={entrees}
+                targetIndex={order.entree.index}
+                spinTrigger={randomiseCount}
+              />
             </div>
+
+            {order.ingredients.map((ingredient) => (
+              <div className="slot-column">
+                <VerticalCarousel
+                  slides={ingredients[ingredient.category]}
+                  targetIndex={ingredient.index}
+                  spinTrigger={randomiseCount}
+                />
+              </div>
+            ))}
 
             {order.side?.image && (
               <div className="slot-column">
-                <VerticalCarousel slides={sides} targetIndex={sideTarget} spinTrigger={randomiseCount} />
+                <VerticalCarousel
+                  slides={sides}
+                  targetIndex={order.side.index}
+                  spinTrigger={randomiseCount}
+                />
               </div>
             )}
 
             {order.drink?.image && (
               <div className="slot-column">
-                <VerticalCarousel slides={drinks} targetIndex={drinkTarget} spinTrigger={randomiseCount} />
+                <VerticalCarousel
+                  slides={drinks}
+                  targetIndex={order.drink.index}
+                  spinTrigger={randomiseCount}
+                />
               </div>
             )}
           </div>

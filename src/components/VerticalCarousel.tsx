@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import "../styles/App.css"
+import "../styles/App.css";
 import type { SlideItem } from "../data/types";
 
 interface VerticalCarouselProps<T extends SlideItem> {
@@ -8,7 +8,11 @@ interface VerticalCarouselProps<T extends SlideItem> {
   spinTrigger?: number;
 }
 
-export default function VerticalCarousel<T extends SlideItem>({ slides, targetIndex, spinTrigger }: VerticalCarouselProps<T>) {
+export default function VerticalCarousel<T extends SlideItem>({
+  slides,
+  targetIndex,
+  spinTrigger,
+}: VerticalCarouselProps<T>) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
 
@@ -18,7 +22,6 @@ export default function VerticalCarousel<T extends SlideItem>({ slides, targetIn
   // const visibleStyleThreshold = shuffleThreshold / 2;
 
   useEffect(() => {
-
     if (!isSpinning && targetIndex !== undefined) {
       setIsSpinning(true);
 
@@ -42,19 +45,18 @@ export default function VerticalCarousel<T extends SlideItem>({ slides, targetIn
         }
       }, 75);
 
-    return () => clearInterval(spinInterval);
+      return () => clearInterval(spinInterval);
     }
   }, [slides.length, spinTrigger]);
 
-  
   const determinePlacement = (itemIndex: number) => {
     if (activeIndex === itemIndex) return 0;
 
     if (itemIndex >= halfwayIndex) {
-      if (activeIndex > (itemIndex - halfwayIndex)) {
+      if (activeIndex > itemIndex - halfwayIndex) {
         return (itemIndex - activeIndex) * itemHeight;
       } else {
-        return -((slides.length + activeIndex) - itemIndex) * itemHeight;
+        return -(slides.length + activeIndex - itemIndex) * itemHeight;
       }
     }
 
@@ -69,18 +71,18 @@ export default function VerticalCarousel<T extends SlideItem>({ slides, targetIn
 
       return -(activeIndex - itemIndex) * itemHeight;
     }
-  }
+  };
 
   return (
     <div className="slot-inner-column">
       {slides.map((item, i) => (
-          <img
-            key={item.name}
-            src={item.image ?? "/src/assets/images/placeholder.png"}
-            alt={item.name}
-            className="slot-image"
-            style={{ transform: `translateY(${determinePlacement(i)}px)` }}
-          />
+        <img
+          key={item.name}
+          src={item.image ?? "/src/assets/images/placeholder.png"}
+          alt={item.name}
+          className="slot-image"
+          style={{ transform: `translateY(${determinePlacement(i)}px)` }}
+        />
       ))}
     </div>
   );

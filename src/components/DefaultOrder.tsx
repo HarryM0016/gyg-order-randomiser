@@ -11,7 +11,7 @@ export const defaultOrder: Order = {
     },
     isBreakfast: false,
     isDinner: true,
-    index: 1
+    index: 1,
   },
   ingredients: [
     {
@@ -21,6 +21,7 @@ export const defaultOrder: Order = {
       isBreakfast: false,
       isDinner: true,
       index: 1,
+      category: "rice",
     },
     {
       name: "black beans",
@@ -29,6 +30,7 @@ export const defaultOrder: Order = {
       isBreakfast: false,
       isDinner: true,
       index: 0,
+      category: "beans",
     },
     {
       name: "brisket",
@@ -37,6 +39,7 @@ export const defaultOrder: Order = {
       isBreakfast: false,
       isDinner: true,
       index: 1,
+      category: "protein",
     },
     {
       name: "guacamole",
@@ -45,6 +48,7 @@ export const defaultOrder: Order = {
       isBreakfast: true,
       isDinner: true,
       index: 5,
+      category: "addition",
     },
     {
       name: "sour cream",
@@ -53,6 +57,7 @@ export const defaultOrder: Order = {
       isBreakfast: true,
       isDinner: true,
       index: 7,
+      category: "sauce",
     },
   ],
   type: "order",
