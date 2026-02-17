@@ -17,12 +17,16 @@ function App() {
   const [order, setOrder] = useState<Order>(defaultOrder);
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isBreakfast, setIsBreakfast] = useState(false);
-  const [isMeal, setIsMeal] = useState(false);
+  const [isMeal, setIsMeal] = useState(true);
   const [randomiseCount, setRandomiseCount] = useState(0);
+
+  const [activeSpins, setActiveSpins] = useState(order.length);
+  const isSpinning = activeSpins > 0;
 
   const handleRandomise = () => {
     const newOrder = randomiseOrder(isVegetarian, isBreakfast, isMeal);
     setOrder(newOrder);
+    setActiveSpins(newOrder.length);
     setRandomiseCount((c) => c + 1);
   };
 
@@ -52,7 +56,11 @@ function App() {
             />
             <MealCheckbox isChecked={isMeal} onCheck={setIsMeal} />
           </div>
-          <button className="randomise-button" onClick={handleRandomise}>
+          <button
+            className="randomise-button"
+            onClick={handleRandomise}
+            disabled={isSpinning}
+          >
             Randomise!
           </button>
         </div>
@@ -63,6 +71,7 @@ function App() {
                 slides={entrees}
                 targetIndex={order.entree.index}
                 spinTrigger={randomiseCount}
+                onSpinEnd={() => setActiveSpins((n) => n - 1)}
               />
             </div>
 
@@ -72,6 +81,7 @@ function App() {
                   slides={ingredients[ingredient.category]}
                   targetIndex={ingredient.index}
                   spinTrigger={randomiseCount}
+                  onSpinEnd={() => setActiveSpins((n) => n - 1)}
                 />
               </div>
             ))}
@@ -82,6 +92,7 @@ function App() {
                   slides={sides}
                   targetIndex={order.side.index}
                   spinTrigger={randomiseCount}
+                  onSpinEnd={() => setActiveSpins((n) => n - 1)}
                 />
               </div>
             )}
@@ -92,6 +103,7 @@ function App() {
                   slides={drinks}
                   targetIndex={order.drink.index}
                   spinTrigger={randomiseCount}
+                  onSpinEnd={() => setActiveSpins((n) => n - 1)}
                 />
               </div>
             )}

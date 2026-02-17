@@ -12,7 +12,8 @@ export default function MealCheckbox({
       <input
         type="checkbox"
         className="big-checkbox"
-        onClick={() => onCheck(!isChecked)}
+        checked={isChecked}
+        onChange={(e) => onCheck(e.target.checked)}
       />
       Make it a Meal
     </label>

@@ -60,5 +60,19 @@ export const defaultOrder: Order = {
       category: "sauce",
     },
   ],
-  type: "order",
+  side: {
+    name: "fries",
+    image: "/src/assets/images/sides/fries.png",
+    isVegetarian: true,
+    isBreakfast: false,
+    isDinner: true,
+    index: 5,
+  },
+  drink: {
+    name: "coke",
+    image: "/src/assets/images/drinks/coke.png",
+    index: 1,
+  },
+  type: "meal",
+  length: 8,
 };

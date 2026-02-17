@@ -12,7 +12,8 @@ export default function VegetarianCheckbox({
       <input
         type="checkbox"
         className="big-checkbox"
-        onClick={() => onCheck(!isChecked)}
+        checked={isChecked}
+        onChange={(e) => onCheck(e.target.checked)}
       />
       Vegetarian
     </label>
