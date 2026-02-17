@@ -12,7 +12,8 @@ export default function BreakfastCheckbox({
       <input
         type="checkbox"
         className="big-checkbox"
-        onClick={() => onCheck(!isChecked)}
+        checked={isChecked}
+        onChange={(e) => onCheck(e.target.checked)}
       />
       Breakfast Menu
     </label>
