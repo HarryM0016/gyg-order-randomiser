@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import "../styles/App.css";
 import type { SlideItem } from "../data/types";
 
@@ -6,12 +6,14 @@ interface VerticalCarouselProps<T extends SlideItem> {
   slides: T[];
   targetIndex: number;
   spinTrigger?: number;
+  onSpinEnd: () => void;
 }
 
 export default function VerticalCarousel<T extends SlideItem>({
   slides,
   targetIndex,
   spinTrigger,
+  onSpinEnd,
 }: VerticalCarouselProps<T>) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
@@ -42,6 +44,7 @@ export default function VerticalCarousel<T extends SlideItem>({
         if (currentStep >= totalSteps) {
           clearInterval(spinInterval);
           setIsSpinning(false);
+          onSpinEnd();
         }
       }, 150);
 

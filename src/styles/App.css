@@ -97,6 +97,10 @@ header {
   background-color: var(--color-primary-hover);
 }
 
+.randomise-button:disabled {
+  opacity: 0.5;
+}
+
 .slot-container {
   height: auto;
   width: 75%;
