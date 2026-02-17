@@ -60,7 +60,7 @@ export const defaultOrder: Order = {
       category: "sauce",
     },
   ],
-  side:   {
+  side: {
     name: "fries",
     image: "/src/assets/images/sides/fries.png",
     isVegetarian: true,
@@ -68,7 +68,7 @@ export const defaultOrder: Order = {
     isDinner: true,
     index: 5,
   },
-  drink:   {
+  drink: {
     name: "coke",
     image: "/src/assets/images/drinks/coke.png",
     index: 1,

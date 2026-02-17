@@ -89,12 +89,12 @@ export function randomiseOrder(
     entree: selectedEntree,
     ingredients: selectedIngredients,
     type: "order",
-    length: selectedIngredients.length + 1
+    length: selectedIngredients.length + 1,
   };
   if (isMeal) {
     order.side = randomiseSide(isBreakfast, isVegetarian);
     order.drink = randomiseDrink();
-    order.length += 2
+    order.length += 2;
     order.type = "meal";
   }
   return order;

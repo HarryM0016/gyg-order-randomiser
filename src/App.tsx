@@ -26,7 +26,7 @@ function App() {
   const handleRandomise = () => {
     const newOrder = randomiseOrder(isVegetarian, isBreakfast, isMeal);
     setOrder(newOrder);
-    setActiveSpins(newOrder.length)
+    setActiveSpins(newOrder.length);
     setRandomiseCount((c) => c + 1);
   };
 
@@ -56,7 +56,11 @@ function App() {
             />
             <MealCheckbox isChecked={isMeal} onCheck={setIsMeal} />
           </div>
-          <button className="randomise-button" onClick={handleRandomise} disabled={isSpinning}>
+          <button
+            className="randomise-button"
+            onClick={handleRandomise}
+            disabled={isSpinning}
+          >
             Randomise!
           </button>
         </div>

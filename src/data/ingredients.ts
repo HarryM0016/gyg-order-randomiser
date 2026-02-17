@@ -112,7 +112,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       index: 3,
       category: "beans",
     },
-        {
+    {
       name: "black beans",
       image: "/src/assets/images/ingredients/beans/black-beans.png",
       isVegetarian: true,
@@ -130,7 +130,7 @@ export const ingredients: Record<string, Ingredient[]> = {
       index: 5,
       category: "beans",
     },
-        {
+    {
       name: "black beans",
       image: "/src/assets/images/ingredients/beans/black-beans.png",
       isVegetarian: true,
