@@ -1,5 +1,5 @@
 import { useState } from "react";
-import gygLogo from "./assets/gyg.svg";
+import gygLogo from "./assets/gyg2.svg";
 import "./styles/App.css";
 import { randomiseOrder, createOrderString } from "./utils/randomiser";
 import type { Order } from "./utils/randomiser";
@@ -32,19 +32,15 @@ function App() {
 
   return (
     <>
-      <div className="header-container">
-        <a
-          href="https://www.guzmanygomez.com.au/"
-          target="_blank"
-          title="Guzman Y Gomez"
-        >
-          <img src={gygLogo} className="logo" />
-        </a>
-        <header></header>
-      </div>
       <div className="app-container">
-        <div className="side-container">
-          <h1>Select Criteria</h1>
+        <div className="header-container">
+          <a
+            href="https://www.guzmanygomez.com.au/"
+            target="_blank"
+            title="Guzman Y Gomez"
+          >
+            <img src={gygLogo} className="logo" />
+          </a>
           <div className="checkbox-container">
             <VegetarianCheckbox
               isChecked={isVegetarian}
@@ -61,7 +57,7 @@ function App() {
             onClick={handleRandomise}
             disabled={isSpinning}
           >
-            Randomise!
+            Randomise
           </button>
         </div>
         <div className="slot-container">
@@ -108,7 +104,11 @@ function App() {
               </div>
             )}
           </div>
-          <p className="slot-message-container">{createOrderString(order)}</p>
+          {!isSpinning ? (
+            <p className="slot-message-container">{createOrderString(order)}</p>
+          ) : (
+            <p className="slot-message-container">...</p>
+          )}
         </div>
       </div>
     </>

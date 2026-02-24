@@ -15,7 +15,7 @@ export default function VegetarianCheckbox({
         checked={isChecked}
         onChange={(e) => onCheck(e.target.checked)}
       />
-      Vegetarian
+      VEGETARIAN
     </label>
   );
 }

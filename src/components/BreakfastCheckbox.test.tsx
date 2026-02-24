@@ -7,7 +7,7 @@ describe("Breakfast checkbox", () => {
   test("should render correctly", () => {
     render(<BreakfastCheckbox isChecked={false} onCheck={vi.fn()} />);
 
-    const checkbox = screen.getByText("Breakfast Menu");
+    const checkbox = screen.getByText("BREAKFAST");
     expect(checkbox).toBeInTheDocument();
   });
 
@@ -16,7 +16,7 @@ describe("Breakfast checkbox", () => {
 
     render(<BreakfastCheckbox isChecked={false} onCheck={mockOnCheck} />);
 
-    screen.getByText("Breakfast Menu").click();
+    screen.getByText("BREAKFAST").click();
     expect(mockOnCheck).toHaveBeenCalledWith(true);
   });
 });
