@@ -1,5 +1,5 @@
 import { useState } from "react";
-import gygLogo from "./assets/gyg.svg";
+import gygLogo from "./assets/gyg2.svg";
 import "./styles/App.css";
 import { randomiseOrder, createOrderString } from "./utils/randomiser";
 import type { Order } from "./utils/randomiser";
@@ -32,20 +32,10 @@ function App() {
 
   return (
     <>
-      <div className="header-container">
-        <a
-          href="https://www.guzmanygomez.com.au/"
-          target="_blank"
-          title="Guzman Y Gomez"
-        >
-          <img src={gygLogo} className="logo" />
-        </a>
-        <header></header>
-      </div>
       <div className="app-container">
-        <div className="side-container">
-          <h1>Select Criteria</h1>
-          <div className="checkbox-container">
+        <div className="header-container">
+          <img src={gygLogo} className="logo" />
+          <div className="checkbox-container header">
             <VegetarianCheckbox
               isChecked={isVegetarian}
               onCheck={setIsVegetarian}
@@ -61,11 +51,22 @@ function App() {
             onClick={handleRandomise}
             disabled={isSpinning}
           >
-            Randomise!
+            RANDOMISE
           </button>
         </div>
         <div className="slot-container">
-          <div className="slot-column-container">
+          <div className="checkbox-container slot">
+            <VegetarianCheckbox
+              isChecked={isVegetarian}
+              onCheck={setIsVegetarian}
+            />
+            <BreakfastCheckbox
+              isChecked={isBreakfast}
+              onCheck={setIsBreakfast}
+            />
+            <MealCheckbox isChecked={isMeal} onCheck={setIsMeal} />
+          </div>
+          <div className="slot-inner-container">
             <div className="slot-column">
               <VerticalCarousel
                 slides={entrees}
@@ -108,7 +109,11 @@ function App() {
               </div>
             )}
           </div>
-          <p className="slot-message-container">{createOrderString(order)}</p>
+          {!isSpinning ? (
+            <p className="slot-message-container">{createOrderString(order)}</p>
+          ) : (
+            <p className="slot-message-container">...</p>
+          )}
         </div>
       </div>
     </>

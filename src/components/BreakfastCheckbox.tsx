@@ -15,7 +15,7 @@ export default function BreakfastCheckbox({
         checked={isChecked}
         onChange={(e) => onCheck(e.target.checked)}
       />
-      Breakfast Menu
+      BREAKFAST
     </label>
   );
 }

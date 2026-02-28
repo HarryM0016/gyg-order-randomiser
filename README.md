@@ -1,15 +1,15 @@
 # Summary
 
 This repository contains a Guzman Y Gomez order randomiser built using React and Vite.
-It provides a random entree (burrito, bowl, nachos), with random fillings and additions.
-Additionally, the app also includes a checkbox to enable only vegetarian options.
 
-# Planned Additions
+It randomly generates a:
 
-- Return total cost of order and option to limit order price
-- Add coffee
-- Add spicy and mild
-- Add special items (caesar range, bbq chicken double crunch)
-- Add soft serve
-- Randomise sauce choices for desserts
-- Add guacamole as an addition when the protein is vegetables
+- entree (burrito, bowl, nachos)
+- protein (chicken, pork, vegetables)
+- addition (guacamole, onions, jalapenos)
+- sauce
+
+Entrees have different randomised categories depending on what can be added to them (e.g. burritos also randomise rice and beans).
+Additionally, there is a meal toggle that also returns a drink and side.
+
+The app also includes a toggle for vegetarian and breakfast options.

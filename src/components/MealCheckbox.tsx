@@ -15,7 +15,7 @@ export default function MealCheckbox({
         checked={isChecked}
         onChange={(e) => onCheck(e.target.checked)}
       />
-      Make it a Meal
+      MAKE IT A MEAL
     </label>
   );
 }

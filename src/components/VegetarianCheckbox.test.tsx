@@ -7,7 +7,7 @@ describe("Vegetarian checkbox", () => {
   test("should render correctly", () => {
     render(<VegetarianCheckbox isChecked={false} onCheck={vi.fn()} />);
 
-    const checkbox = screen.getByText("Vegetarian");
+    const checkbox = screen.getByText("VEGETARIAN");
     expect(checkbox).toBeInTheDocument();
   });
 
@@ -16,7 +16,7 @@ describe("Vegetarian checkbox", () => {
 
     render(<VegetarianCheckbox isChecked={false} onCheck={mockOnCheck} />);
 
-    screen.getByText("Vegetarian").click();
+    screen.getByText("VEGETARIAN").click();
     expect(mockOnCheck).toHaveBeenCalledWith(true);
   });
 });
