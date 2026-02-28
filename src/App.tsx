@@ -34,14 +34,8 @@ function App() {
     <>
       <div className="app-container">
         <div className="header-container">
-          <a
-            href="https://www.guzmanygomez.com.au/"
-            target="_blank"
-            title="Guzman Y Gomez"
-          >
-            <img src={gygLogo} className="logo" />
-          </a>
-          <div className="checkbox-container">
+          <img src={gygLogo} className="logo" />
+          <div className="checkbox-container header">
             <VegetarianCheckbox
               isChecked={isVegetarian}
               onCheck={setIsVegetarian}
@@ -57,10 +51,21 @@ function App() {
             onClick={handleRandomise}
             disabled={isSpinning}
           >
-            Randomise
+            RANDOMISE
           </button>
         </div>
         <div className="slot-container">
+          <div className="checkbox-container slot">
+            <VegetarianCheckbox
+              isChecked={isVegetarian}
+              onCheck={setIsVegetarian}
+            />
+            <BreakfastCheckbox
+              isChecked={isBreakfast}
+              onCheck={setIsBreakfast}
+            />
+            <MealCheckbox isChecked={isMeal} onCheck={setIsMeal} />
+          </div>
           <div className="slot-column-container">
             <div className="slot-column">
               <VerticalCarousel
