@@ -66,7 +66,7 @@ function App() {
             />
             <MealCheckbox isChecked={isMeal} onCheck={setIsMeal} />
           </div>
-          <div className="slot-column-container">
+          <div className="slot-inner-container">
             <div className="slot-column">
               <VerticalCarousel
                 slides={entrees}

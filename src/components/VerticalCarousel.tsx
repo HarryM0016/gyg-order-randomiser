@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useMediaQuery } from "usehooks-ts";
 import "../styles/App.css";
 import type { SlideItem } from "../data/types";
 
@@ -77,6 +78,13 @@ export default function VerticalCarousel<T extends SlideItem>({
     return 0;
   };
 
+  const isHorizontal = useMediaQuery("(max-width: 768px)");
+
+  const placement = (i: number) => {
+    const px = determinePlacement(i);
+    return isHorizontal ? `translateX(${px}px)` : `translateY(${px}px)`;
+  };
+
   return (
     <div className="slot-inner-column">
       {slides.map((item, i) => (
@@ -92,7 +100,7 @@ export default function VerticalCarousel<T extends SlideItem>({
           ]
             .filter(Boolean)
             .join(" ")}
-          style={{ transform: `translateY(${determinePlacement(i)}px)` }}
+          style={{ transform: placement(i) }}
         />
       ))}
     </div>
