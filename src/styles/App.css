@@ -106,7 +106,7 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
-.randomise-button:hover {
+.randomise-button:hover:enabled {
   background-color: var(--color-primary-hover);
 }
 
