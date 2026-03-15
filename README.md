@@ -12,11 +12,23 @@ It randomly generates a:
 - sauce
 
 Entrees have different randomised categories depending on what can be added to them (e.g. burritos also randomise rice and beans).
-Additionally, there is a meal toggle that also returns a drink and side.
 
-The app also includes a toggle for vegetarian and breakfast options.
+The app also includes a:
 
-**Disclaimer**
+- toggle for vegetarian and breakfast options
+- a meal toggle that also returns a drink and side
+- formatting for desktop, tablet and mobile device screens
+
+**Desktop View**
+![](src/assets/gyg-app-desktop.png)
+
+**Tablet View**
+![](src/assets/gyg-app-tablet.png)
+
+**Mobile View**
+![](src/assets/gyg-app-mobile.png)
+
+## Disclaimer
 
 This is a personal programming project created for learning and portfolio purposes.
 
