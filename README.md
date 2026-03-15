@@ -1,5 +1,7 @@
 # Summary
 
+![](src.assets.gyg-app-demo.gif)
+
 This repository contains a Guzman Y Gomez order randomiser built using React and Vite.
 
 It randomly generates a:
