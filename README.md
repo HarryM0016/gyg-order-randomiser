@@ -19,13 +19,16 @@ The app also includes a:
 - a meal toggle that also returns a drink and side
 - formatting for desktop, tablet and mobile device screens
 
-**Desktop View**
+### Desktop View
+
 ![](src/assets/gyg-app-desktop.png)
 
-**Tablet View**
+### Tablet View
+
 ![](src/assets/gyg-app-tablet.png)
 
-**Mobile View**
+### Mobile View
+
 ![](src/assets/gyg-app-mobile.png)
 
 ## Disclaimer
