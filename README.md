@@ -16,7 +16,7 @@ Additionally, there is a meal toggle that also returns a drink and side.
 
 The app also includes a toggle for vegetarian and breakfast options.
 
-Disclaimer
+**Disclaimer**
 
 This is a personal programming project created for learning and portfolio purposes.
 
